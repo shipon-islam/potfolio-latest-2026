@@ -278,7 +278,6 @@ export const experience: Experience[] = [
       "Nginx",
       "Docker",
       "GitHub Actions",
-      ,
       "PM2",
       "Backups",
     ],
