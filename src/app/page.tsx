@@ -1,13 +1,13 @@
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Experience from "@/components/Experience";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Stack from "@/components/Stack";
-import Services from "@/components/Services";
-import Work from "@/components/Work";
 import Reviews from "@/components/Reviews";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Services from "@/components/Services";
+import Stack from "@/components/Stack";
+import Work from "@/components/Work";
 import { heroSkills, site } from "@/lib/site";
 
 // Structured data so Google can show the right name, role and links.
@@ -55,7 +55,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-      <main id="top">
+      <main id="top" className="">
         <Hero />
         <About />
         <Experience />

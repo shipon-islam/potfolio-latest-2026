@@ -105,7 +105,7 @@ export default function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="section">
       <div className="wrap">
-        <div className=" grid items-start gap-[clamp(2rem,6vw,5rem)] md:grid-cols-[1.1fr_0.9fr]">
+        <div className=" grid items-start grid-cols-1 gap-[clamp(2rem,6vw,5rem)] md:grid-cols-[1.1fr_0.9fr]">
           <div data-reveal>
             <SectionHead
               id="about-title"
