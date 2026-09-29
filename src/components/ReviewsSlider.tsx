@@ -2,9 +2,9 @@
 
 import { reviews, type Review } from "@/lib/site";
 import Image from "next/image";
-import Icon from "./Icon";
-import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent, TouchEvent } from "react";
+import { useEffect, useRef, useState } from "react";
+import Icon from "./Icon";
 
 // Client review slider, used by components/Reviews.tsx.
 //
@@ -60,7 +60,7 @@ export default function ReviewsSlider() {
     const sync = () => {
       const next = Number.parseInt(
         window.getComputedStyle(track).getPropertyValue("--per-view"),
-        10
+        10,
       );
       if (!Number.isFinite(next) || next < 1) return;
       // Compare first: a resize should not re-render on every event.
@@ -132,7 +132,7 @@ export default function ReviewsSlider() {
   };
 
   const arrow =
-    "spot grid h-10 w-10 flex-none place-items-center rounded-full border border-line bg-bg text-fg transition hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-35";
+    "spot grid h-10 w-10 flex-none place-items-center rounded-full border border-halo bg-bg text-fg transition hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-35";
 
   return (
     <div
@@ -214,7 +214,7 @@ export default function ReviewsSlider() {
 // every card in a row is the same size.
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <figure className="spot relative m-0 flex flex-1 flex-col gap-[18px] overflow-hidden rounded-[20px] border border-line bg-bg p-[26px]">
+    <figure className="spot relative m-0 flex flex-1 flex-col gap-[18px] overflow-hidden rounded-[20px] border border-halo/50 bg-bg p-[26px]">
       {/* Big quotation mark watermark in the corner */}
       <span
         aria-hidden="true"
@@ -267,7 +267,7 @@ function ReviewCard({ review }: { review: Review }) {
         <span className="min-w-0">
           <span className="block font-bold">{review.name}</span>
           <span className="block text-[0.92rem] font-medium text-muted">
-            {review.role}
+            {review.role}/ {review.country}
           </span>
         </span>
       </figcaption>
@@ -286,4 +286,3 @@ function ReviewCard({ review }: { review: Review }) {
     </figure>
   );
 }
-

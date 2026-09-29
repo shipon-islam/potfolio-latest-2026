@@ -21,11 +21,39 @@ export default function Experience() {
       className="section border-t border-line"
     >
       <div className="wrap">
-        <SectionHead
-          id="experience-title"
-          title="Where I've been building."
-          lede="Four years of shipping websites and web apps: a software company in Bangladesh, freelance clients on Fiverr, plus the VPS servers, Cloudflare and shared hosting my own projects and client sites run on."
-        />
+        <div className="relative">
+          <SectionHead
+            eyebrow="Experience"
+            id="experience-title"
+            title="Where I've been building."
+            lede="Four years of shipping websites and web apps: a software company in Bangladesh, freelance clients on Fiverr, plus the VPS servers, Cloudflare and shared hosting my own projects and client sites run on."
+            highlight="building"
+            divider
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
+          >
+            <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
+              The right tools
+              <br />
+              for better products
+            </span>
+            <svg
+              viewBox="0 0 60 44"
+              className="ml-auto mt-1 h-[44px] w-[60px] text-muted/70"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* A curve that leads the eye from the note down to the rule. */}
+              <path d="M52 6Q48 20 34 33" />
+              <path d="M43 32 34 33l1-9" />
+            </svg>
+          </span>
+        </div>
         <ol className="relative m-0 list-none p-0">
           {/* The spine: full height by default, drawn from the top the moment the
               list is revealed (see .timeline-line in globals.css). */}

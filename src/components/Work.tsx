@@ -11,11 +11,39 @@ export default function Work() {
       className="section border-t border-line"
     >
       <div className="wrap">
-        <SectionHead
-          id="work-title"
-          title="Selected work."
-          lede="E-commerce, marketplaces, business and community sites, plus personal builds. Open a project to see what I did on it."
-        />
+        <div className="relative">
+          <SectionHead
+            id="work-title"
+            eyebrow="Work"
+            title="Selected work."
+            lede="E-commerce, marketplaces, business and community sites, plus personal builds. Open a project to see what I did on it."
+            highlight="work"
+            divider
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
+          >
+            <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
+              The right tools
+              <br />
+              for better products
+            </span>
+            <svg
+              viewBox="0 0 60 44"
+              className="ml-auto mt-1 h-[44px] w-[60px] text-muted/70"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* A curve that leads the eye from the note down to the rule. */}
+              <path d="M52 6Q48 20 34 33" />
+              <path d="M43 32 34 33l1-9" />
+            </svg>
+          </span>
+        </div>
         <div className="border-t border-line">
           {projects.map((project, i) => (
             <details

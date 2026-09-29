@@ -1,8 +1,9 @@
-import { heroSkills, site } from "@/lib/site";
+import { heroHighlights, heroSocials, heroStats, site } from "@/lib/site";
 import Image from "next/image";
-import ResumeButton from "./ResumeButton";
+import Icon from "./Icon";
+import SocialIcon from "./SocialIcon";
+import { WorldwideIcon } from "./SvgIcon";
 import TechIcon from "./TechIcon";
-
 // The logos that float around the portrait, one per side so the ring never
 // crowds the face. Hidden below `md` (the hero chip row already shows the same
 // logos there).
@@ -104,6 +105,56 @@ export default function Hero() {
             on the front end, Node.js, Express and Python behind it, Docker for
             shipping, and n8n when a job should run itself.
           </p>
+          {/* The numbers strip: experience, projects, reviews, reach. Two columns
+              on small screens, one row of four with hairline dividers from `lg`
+              (the left column is too narrow for four in a row before that).
+              The value is capitalised, so "4+ years" in site.ts reads "4+ Years". */}
+          <ul
+            className="animate-rise-in mt-6 flex list-none flex-wrap gap-2.5 p-0"
+            style={enter(360)}
+          >
+            {heroHighlights.map((item) => (
+              <li
+                key={item.label}
+                className="spot flex items-center gap-2 rounded-full border border-line bg-panel/70 px-3.5 py-2 text-[0.9rem] font-semibold text-fg backdrop-blur-sm transition duration-200 hover:-translate-y-px hover:border-accent hover:text-accent"
+              >
+                <Icon
+                  d={item.icon}
+                  className="h-[18px] w-[18px] flex-none text-accent"
+                />
+                {item.label}
+              </li>
+            ))}
+          </ul>
+          <ul
+            className="animate-rise-in mt-9 grid list-none grid-cols-2 gap-x-5 gap-y-6 p-0 lg:grid-cols-3 lg:gap-x-0"
+            style={enter(480)}
+          >
+            {heroStats.map((stat) => (
+              <li
+                key={stat.value}
+                className="flex items-center gap-2.5 border-line lg:border-l lg:pl-4 lg:first:border-l-0 lg:first:pl-0"
+              >
+                <span
+                  className="grid h-9 w-9 flex-none place-items-center rounded-xl bg-gradient-to-br from-accent/20 to-halo/5 text-accent ring-1 ring-inset ring-accent/25 lg:h-8 lg:w-8"
+                  aria-hidden="true"
+                >
+                  <Icon
+                    d={stat.icon}
+                    className="h-[18px] w-[18px] lg:h-4 lg:w-4"
+                  />
+                </span>
+                <span className="leading-tight">
+                  <strong className="block font-display text-[1rem] capitalize text-fg lg:text-[0.95rem]">
+                    {stat.value}
+                  </strong>
+                  <span className="text-[0.82rem] text-muted lg:text-[0.78rem]">
+                    {stat.label}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
           <div
             className="animate-rise-in mt-[34px] flex flex-wrap gap-3"
             style={enter(360)}
@@ -151,11 +202,9 @@ export default function Hero() {
                 <path d="M12 5v14M6 13l6 6 6-6" />
               </svg>
             </a>
-            <ResumeButton />
           </div>
-          {/* Same skills as the Stack section, but with their logos, so the
-              first screen says what the stack is without any reading. */}
-          <ul className="mt-7 flex list-none flex-wrap gap-2 p-0">
+
+          {/* <ul className="mt-7 flex list-none flex-wrap gap-2 p-0">
             {heroSkills.map((skill, i) => (
               <li
                 key={skill}
@@ -166,9 +215,35 @@ export default function Hero() {
                 {skill}
               </li>
             ))}
-          </ul>
+          </ul> */}
+          {/* Same skills as the Stack section, but with their logos, so the
+              first screen says what the stack is without any reading. */}
+          <div
+            className="animate-rise-in mt-12 sm:mt-32 flex flex-wrap items-center gap-x-4 gap-y-3"
+            style={enter(540)}
+          >
+            <span className="text-[0.95rem] font-semibold text-muted">
+              Find me on
+            </span>
+            <ul className="m-0 flex list-none flex-wrap items-center gap-2.5 p-0">
+              {heroSocials.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.label}
+                    aria-label={`${social.label} (opens in a new tab)`}
+                    className="spot flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 text-[0.88rem] font-semibold text-muted transition duration-200 hover:-translate-y-px hover:border-accent hover:text-accent"
+                  >
+                    <SocialIcon name={social.icon} className="h-4 w-4" />
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-
         <div
           className="animate-rise-in relative mx-auto aspect-square w-[min(440px,88%)]"
           style={enter(240)}
@@ -295,10 +370,11 @@ export default function Hero() {
                 className="h-[9px] w-[9px] animate-pulse-ring rounded-full bg-[#16a34a]"
                 aria-hidden="true"
               />
-              {site.availability}
+              Available for new projects
             </span>
-            <small className="block text-[0.76rem] font-semibold text-[#5d5a80]">
-              {site.shortRole}, {site.company}
+            <small className="text-[0.76rem] font-semibold text-[#5d5a80] flex gap-1">
+              <WorldwideIcon className="h-3.5 w-3.5 text-halo" />
+              <span>Remote . Worldwide</span>
             </small>
           </div>
         </div>

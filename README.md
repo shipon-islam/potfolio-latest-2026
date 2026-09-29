@@ -29,7 +29,7 @@ Everything you'll change lives in **`lib/site.ts`**:
 | `contactChannels` | the footer "Get in touch" column: label, URL and icon — add a line to add a channel |
 | `facts` | the highlighted numbers next to the About copy |
 | `heroSkills` | the skill chips under the hero buttons |
-| `stack` | the Stack table, one row per layer (front end, back end, DevOps, automation, design) |
+| `stack` | the Stack cards, one per layer: the `items` chips plus each card's `icon`, `blurb`, grid `span`, `tone` (its light/dark hue pair) and optional closing `note` |
 | `services` / `automation` | the Services grid and the n8n strip |
 | `experience` | the Experience timeline (period, role, company, bullets, tech tags) |
 | `projects` | the Work accordion (name, type, meta, description, tech tags, optional live link) |
@@ -85,7 +85,7 @@ src/
     Hero.tsx        animated SVG strokes, portrait, floating badges, skill chips
     About.tsx       intro copy + facts
     Experience.tsx  work timeline (awtomatig + DevOps/VPS hosting + Fiverr)
-    Stack.tsx       tech layers
+    Stack.tsx       layer cards: icon, blurb, count pill, tool chips, closing note
     Services.tsx    service grid + n8n automation strip
     Work.tsx        project accordion with type badges, tags and optional live link
     Reviews.tsx     reviews section shell (heading, slider, Fiverr link)
@@ -113,6 +113,16 @@ colours in `tailwind.config.ts`, so `bg-panel`, `text-muted`, `border-line` etc.
 with the theme and opacity modifiers like `bg-bg/80` keep working. Dark is the default;
 the choice is stored in `localStorage` and applied by an inline script before first paint
 so there is no flash.
+
+## Stack card hues
+
+The Stack cards are the one place with a colour of their own. Each layer in `lib/site.ts`
+carries a `tone` pair — a light and a dark `"R G B"` triplet — which `components/Stack.tsx`
+writes onto the card as `--tone-light` / `--tone-dark`. The `.tone*` block in
+`app/globals.css` resolves the pair for the active theme into `--tone` and paints the card
+wash and border, the header tile, the count pill, the closing note and the chip hover from
+it. That is the same trick `components/TechIcon.tsx` uses for brand colours, so no theme
+token is re-declared and a new layer only needs a new pair in the content file.
 
 ## Spotlight
 

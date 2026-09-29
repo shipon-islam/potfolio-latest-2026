@@ -1,5 +1,14 @@
 // Every piece of content on the site lives in this file.
 // Edit here instead of hunting through the components.
+export const heroHighlights = [
+  { label: "Web Apps", icon: "M3 5h18v14H3zM3 9h18M6.5 7h.01M9 7h.01" },
+  {
+    label: "AI Applications",
+    icon: "M12 3l1.9 4.8L18.7 9.7l-4.8 1.9L12 16.4l-1.9-4.8L5.3 9.7l4.8-1.9L12 3zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15zM5 14l.7 1.8L7.5 16.5l-1.8.7L5 19l-.7-1.8L2.5 16.5l1.8-.7L5 14z",
+  },
+  { label: "APIs", icon: "M9 6l-5 6 5 6M15 6l5 6-5 6M13.5 4l-3 16" },
+  { label: "Automation", icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8z" },
+];
 
 export const site = {
   name: "Shipon Islam",
@@ -12,21 +21,21 @@ export const site = {
   clipPathShape:
     "shape(from 87.45% 45.02%,curve to 92.48% 56.45% with 90.99% 50.00%,smooth to 92.05% 69.35%,smooth to 82.42% 77.15%,smooth to 71.01% 83.22%,smooth to 61.91% 91.53%,smooth to 49.74% 96.95%,smooth to 38.70% 91.46%,smooth to 25.99% 85.79%,smooth to 15.38% 80.54%,smooth to 14.30% 66.90%,smooth to 13.33% 55.08%,smooth to 11.20% 44.30%,smooth to 11.95% 32.32%,smooth to 16.84% 21.25%,smooth to 27.31% 15.38%,smooth to 38.83% 11.12%,smooth to 50.39% 5.23%,smooth to 62.85% 5.60%,smooth to 72.70% 14.03%,smooth to 79.11% 24.51%,smooth to 82.80% 34.84%,smooth to 87.45% 45.02%)",
   // Where the contact form sends messages (it opens the visitor's email app).
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "you@example.com",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "shiponislam459@gmail.com",
   // Shown in the footer as a tap-to-call link. TODO: replace the placeholder
   // with your real number (set NEXT_PUBLIC_CONTACT_PHONE, see .env.example).
-  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+880 1XXX-XXXXXX",
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+880 1641758653",
   // Used for canonical URLs, Open Graph tags and the sitemap. Point this at
   // your real domain before deploying, otherwise links say localhost.
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   resumeUrl: process.env.NEXT_PUBLIC_RESUME_URL ?? "",
   links: {
-    fiverr: "https://www.fiverr.com/", // TODO: replace with your Fiverr profile URL
-    github: "https://github.com/", // TODO: replace with your GitHub profile URL
-    linkedin: "https://www.linkedin.com/", // TODO: replace with your LinkedIn profile URL
-    x: "https://x.com/", // TODO: replace with your X (Twitter) profile URL
-    instagram: "https://www.instagram.com/", // TODO: replace with your Instagram profile URL
-    facebook: "https://www.facebook.com/", // TODO: replace with your Facebook profile URL
+    fiverr: "https://www.fiverr.com/shipon_islam1", // TODO: replace with your Fiverr profile URL
+    github: "https://github.com/shipon-islam", // TODO: replace with your GitHub profile URL
+    linkedin: "https://www.linkedin.com/in/shiponislam1", // TODO: replace with your LinkedIn profile URL
+    x: "https://x.com/shiponIslam22", // TODO: replace with your X (Twitter) profile URL
+    instagram: "https://www.instagram.com/shipon_islam1", // TODO: replace with your Instagram profile URL
+    facebook: "https://www.facebook.com/shipon.islam.920242", // TODO: replace with your Facebook profile URL
   },
 };
 
@@ -86,19 +95,40 @@ export const contactChannels: ContactChannel[] = [
 ];
 
 export const facts = [
-  { value: "4+ years", label: "building websites and web apps end to end" },
-  { value: "1.5+ years", label: "as a full-stack developer at awtomatig" },
-  { value: "Level 1", label: "seller on Fiverr with repeat clients" },
   {
+    title: "Web Development",
+    mobileTitle: "Web Dev",
+    value: "4+ years",
+    label: "building websites and web apps end to end",
+  },
+  {
+    title: "Full-Stack Development",
+    mobileTitle: "Full-Stack",
+    value: "1.5+ years",
+    label: "as a full-stack developer at awtomatig",
+  },
+  {
+    title: "Fiverr Selling",
+    mobileTitle: "Fiverr",
+    value: "Level 1",
+    label: "seller on Fiverr with repeat clients",
+  },
+  {
+    title: "DevOps & Hosting",
+    mobileTitle: "DevOps",
     value: "Docker + n8n",
     label: "shipping containers and automated workflows",
   },
   {
+    title: "Server Management",
+    mobileTitle: "Servers",
     value: "Ubuntu VPS",
     label: "servers set up, secured, backed up and monitored",
   },
   {
-    value: "Production Ready",
+    title: "Production Deployment",
+    mobileTitle: "Deployment",
+    value: "Ready",
     label: "tested, optimized and deployed for real-world use",
   },
 ];
@@ -116,11 +146,48 @@ export const heroSkills = [
   "Linux & Nginx",
   "n8n",
 ];
+export const heroSocials: Social[] = [
+  { label: "GitHub", href: site.links.github, icon: "github" },
+  { label: "LinkedIn", href: site.links.linkedin, icon: "linkedin" },
+  { label: "Fiverr", href: site.links.fiverr, icon: "fiverr" },
+];
 
-// Grouped the way the Stack section renders: one row per layer.
-export const stack = [
+// Grouped the way the Stack section renders: one card per layer.
+//
+// `icon` (and `note.icon`) are SVG paths on the same 24x24 stroked grid as
+// components/Icon.tsx, `blurb` is the one-line description under the card
+// title, `span` places the card in the six-column grid (see Stack.tsx) and
+// `note` is the optional closing strip the last two cards carry. `span` is a
+// full Tailwind class string so the compiler can see it (do not build it
+// dynamically).
+//
+// `tone` is the card's own hue, so each layer reads as a group instead of the
+// accent colour five times over.
+export type StackLayer = {
+  layer: string;
+  blurb: string;
+  icon: string;
+  /** Grid span, e.g. "lg:col-span-3" (half row) or "lg:col-span-2" (third). */
+  span: string;
+  /**
+   * Two "R G B" channel triplets: the shade the light theme uses, then the one
+   * for the dark theme. Stack.tsx passes them to the `.tone` block in
+   * globals.css, the same way TechIcon.tsx passes a brand colour, so a card can
+   * have a hue of its own without re-declaring any theme token.
+   */
+  tone: { light: string; dark: string };
+  items: string[];
+  note?: { text: string; icon: string; italic?: boolean };
+};
+
+export const stack: StackLayer[] = [
   {
     layer: "Front end",
+    blurb:
+      "Modern UI frameworks and styling tools for fast, responsive and beautiful web apps.",
+    icon: "M9 8.5l-3.5 3.5 3.5 3.5M15 8.5l3.5 3.5-3.5 3.5M13.2 6.5l-2.4 11",
+    span: "lg:col-span-3",
+    tone: { light: "67 56 202", dark: "99 102 241" }, // indigo
     items: [
       "React.js",
       "Next.js",
@@ -133,6 +200,11 @@ export const stack = [
   },
   {
     layer: "Back end",
+    blurb:
+      "Robust server-side technologies and databases for scalable applications.",
+    icon: "M4.8 3.5h14.4a1.3 1.3 0 0 1 1.3 1.3v4.4a1.3 1.3 0 0 1-1.3 1.3H4.8a1.3 1.3 0 0 1-1.3-1.3V4.8a1.3 1.3 0 0 1 1.3-1.3zM4.8 13.5h14.4a1.3 1.3 0 0 1 1.3 1.3v4.4a1.3 1.3 0 0 1-1.3 1.3H4.8a1.3 1.3 0 0 1-1.3-1.3v-4.4a1.3 1.3 0 0 1 1.3-1.3zM7.4 7h.01M7.4 17h.01",
+    span: "lg:col-span-3",
+    tone: { light: "5 150 105", dark: "16 185 129" }, // emerald
     items: [
       "Node.js",
       "Express.js",
@@ -146,6 +218,10 @@ export const stack = [
   },
   {
     layer: "DevOps",
+    blurb: "Deploy, manage and keep your apps running smoothly.",
+    icon: "M6.5 19h11a4.5 4.5 0 0 0 .7-8.95 6.5 6.5 0 0 0-12.5 1.2A4 4 0 0 0 6.5 19z",
+    span: "lg:col-span-6",
+    tone: { light: "124 58 237", dark: "139 92 246" }, // violet
     items: [
       "Linux (Ubuntu VPS)",
       "Nginx",
@@ -164,19 +240,55 @@ export const stack = [
   },
   {
     layer: "Automation",
+    blurb: "Save time with smart automations and integrations.",
+    icon: "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1zM12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4z",
+    span: "lg:col-span-3",
+    tone: { light: "180 83 9", dark: "245 158 11" }, // amber
     items: ["n8n", "AI agents", "Webhooks", "Third-party API integrations"],
+    note: {
+      text: "Automation turns ideas into repeatable systems.",
+      icon: "M13.5 2.5L5 13.5h5.4L10.5 21.5 19 10.5h-5.4z",
+      italic: true,
+    },
   },
   {
     layer: "Design & tools",
+    blurb: "Design, build and improve with modern tools and resources.",
+    icon: "M17.6 2.6a2.7 2.7 0 0 1 3.8 3.8l-8.1 8.1-3.8-3.8zM9.5 10.7 6.4 15.5a2.6 2.6 0 0 0 3.6 3.7l3.3-4.7z",
+    // The last card takes the full width of the two-column grid, so the row
+    // above it never ends on a half-empty line.
+    span: "md:col-span-2 lg:col-span-3",
+    tone: { light: "37 99 235", dark: "59 130 246" }, // blue
     items: [
       "Figma to code",
       "Responsive UI",
       "Accessibility basics",
       "SEO fundamentals",
     ],
+    note: {
+      text: "Better tools. Better workflow. Better results.",
+      icon: "M4.5 16.5c-1.5 1.5-2 3.5-2 3.5s2-.5 3.5-2m1.5-3.5 3 3m-5-6 3 3M14 3c3.5.5 6.5 3.5 7 7-1.5 4.5-5 8-9.5 9.5L4.5 12C6 7.5 9.5 4.5 14 3Zm-1 5.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z",
+    },
   },
 ];
+export const heroStats = [
+  {
+    value: site.experience,
+    label: "Experience",
+    icon: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z",
+  },
+  {
+    value: "25+ Projects",
+    label: "Delivered",
+    icon: "M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z",
+  },
 
+  {
+    value: "Worldwide",
+    label: "Remote",
+    icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2c2.6 2.8 4 6.2 4 10s-1.4 7.2-4 10c-2.6-2.8-4-6.2-4-10s1.4-7.2 4-10z",
+  },
+];
 // `icon` is an SVG path (24x24 grid, stroked). `span` is a full Tailwind class
 // string so the compiler can see it (do not build it dynamically).
 export type Service = {
@@ -264,13 +376,10 @@ export const experience: Experience[] = [
     org: "Self-managed VPS, Cloudflare and shared hosting",
     place: "Freelance clients and own projects, remote",
     points: [
-      "Set up Ubuntu VPS servers from a blank install: SSH keys, users and sudo, firewall rules, unattended security updates and a clean folder layout per app.",
-      "Run Node.js and Python apps behind Nginx as a reverse proxy with SSL from Let's Encrypt, so every site is HTTPS-only and certificates renew themselves.",
-      "Deploy with Docker and Docker Compose: builds from a registry, redeploys that don't take the site down, and rollbacks to the previous image when a release misbehaves.",
-      "Automate the repetitive work: database dumps and off-site backups, log rotation, cron jobs, plus GitHub Actions that build and ship on every push.",
-      "Look after domains, DNS and email records, and put Cloudflare in front of the servers for caching, HTTPS and basic attack protection.",
-      "Move client sites between hosts (shared hosting, cPanel panels and VPS boxes) without downtime, and keep everything on the latest patched stack.",
-      "Monitor uptime, disk and memory, then debug production issues (high load, full disks, broken deploys, expired certificates) before a client notices them.",
+      "Set up and maintain Ubuntu VPS servers with SSH, users, firewall rules, security updates, Nginx, and SSL/HTTPS using Let's Encrypt.",
+      "Deploy and manage Node.js and Python applications with Docker, Docker Compose, GitHub Actions, CI/CD pipelines, and rollback workflows.",
+      "Manage databases, automated backups, log rotation, cron jobs, domains, DNS, Cloudflare, email records, shared hosting, and VPS migrations.",
+      "Monitor server performance and troubleshoot production issues including high load, disk space, failed deployments, SSL problems, and service downtime.",
     ],
     stack: [
       "Ubuntu VPS",
@@ -288,9 +397,10 @@ export const experience: Experience[] = [
     org: "Fiverr — Level 1 Seller",
     place: "Remote, worldwide",
     points: [
-      "Deliver e-commerce, business, community and personal websites for international clients as a Level 1 seller.",
-      "Handle the whole job on my own: requirements, design handoff, development, deployment and after-launch support.",
-      "Grew repeat business through clear communication, live previews before delivery and revisions until clients are happy.",
+      "Develop e-commerce, business, community, and personal websites for international clients.",
+      "Handle the complete project lifecycle, from requirements and design handoff to development, deployment, and post-launch support.",
+      "Communicate directly with clients, provide live previews, and implement revisions based on project requirements.",
+      "Build long-term client relationships through reliable delivery, responsive communication, and quality development.",
     ],
     stack: ["React.js", "Next.js", "Tailwind CSS", "Express.js", "Python"],
   },
@@ -377,6 +487,7 @@ export type Review = {
   quote: string;
   name: string;
   role: string;
+  country: string;
   rating: number;
   avatar?: string;
   source?: { label: string; href: string };
@@ -384,59 +495,91 @@ export type Review = {
 
 // Six entries so the slider (3 cards on desktop, 1 on mobile) always has
 // somewhere to go.
+export const fiverrReviewUrl =
+  "https://www.fiverr.com/shipon_islam1/build-react-js-website-with-tailwind-css-from-figma-design?context_referrer=tailored_homepage_perseus&source=recently_viewed_gigs&ref_ctx_id=c44366e2f4bc42c086df491b49a88511&context=recommendation&pckg_id=1&pos=4&context_alg=recently_viewed&imp_id=effb3a4a-d527-4841-8107-d64d60bc313a";
+const fiverrReviewUrl2 =
+  "https://www.fiverr.com/shipon_islam1/make-svg-animation-using-css-with-javascript-ad65?context_referrer=gig_page&source=other_gigs_by&ref_ctx_id=14d768188826441a9c7faa23f21ae0b4&pckg_id=1&pos=1&seller_online=true&imp_id=008f419a-b5af-4ab3-b29b-e9ebbcc6dc26";
 export const reviews: Review[] = [
   {
     quote:
-      "It has been a pleasure working with Shipon. I appreciate your dedication to the projects that you and your team are on. It is nice from the customers' standpoint to be able to get in touch with you.",
-    name: "John Doe",
+      "Fantastic working with Shipon. Great work and very quick and open to suggestions and comments. The website looks great and he was able to provide everything I asked for.",
+    name: "Luismillersmkt",
     role: "Client",
+    country: "USA",
     rating: 5,
     // avatar: "/reviews/john-doe.jpg",
-    source: { label: "View on Fiverr", href: site.links.fiverr },
+    source: {
+      label: "View on Fiverr",
+      href: fiverrReviewUrl,
+    },
   },
   {
     quote:
-      "Thank you so much for the work! I think our website is performing extremely well and our calls and emails are flooding in. I have referred a few others to you that needed UI design.",
-    name: "Ben Don",
+      "We recently hired Shipon for the front-end of our project using React and Tailwind CSS, and he exceeded our expectations. His prompt and clear communication, coupled with a friendly and professional attitude, made the process smooth and enjoyable.",
+    name: "Scatchy",
     role: "Client",
+    country: "Belgium",
     rating: 5,
     // avatar: "/reviews/ben-don.jpg",
-    source: { label: "View on Fiverr", href: site.links.fiverr },
+    source: { label: "View on Fiverr", href: fiverrReviewUrl },
   },
   {
     quote:
-      "Shipon has done a great job designing our new site at Aeon Systems Inc. After about 6 months we are starting to see some results on Google.",
-    name: "John Head",
-    role: "Aeon Systems Inc.",
+      "Shipon Islam is one of the best sellers that I've ever worked with; he is very professional. He really wants to make the customer happy. He always prefers to make sure that you'll be happy with the work. I would definitely recommend him.",
+    name: "Borhanusa",
+    role: "Client",
+    country: "USA",
     rating: 5,
     // avatar: "/reviews/john-head.jpg",
-    source: { label: "View on Fiverr", href: site.links.fiverr },
+    source: { label: "View on Fiverr", href: fiverrReviewUrl },
   },
   {
     quote:
-      "Shipon rebuilt our store on Next.js and the whole site feels instant now. He asked the right questions before writing a line of code and showed us a live preview the whole way through.",
-    name: "Sarah Ahmed",
-    role: "Founder, Brightcart",
+      "Very wonderful and excellent work, and I advise everyone with it, the work is fast and very pious",
+    name: "Don9988",
+    role: "Client",
+    country: "Oman",
     rating: 5,
     // avatar: "/reviews/sarah-ahmed.jpg",
-    source: { label: "View on Fiverr", href: site.links.fiverr },
+    source: { label: "View on Fiverr", href: fiverrReviewUrl },
   },
   {
     quote:
       "The n8n workflows he built quietly handle our order updates, invoices and follow-up emails. That is several hours of manual work gone every single week, and nothing has broken since.",
-    name: "Daniel Ray",
-    role: "Operations Lead",
+    name: "Ashish Patel",
+    role: "Client",
+    country: "India",
     rating: 5,
     // avatar: "/reviews/daniel-ray.jpg",
-    source: { label: "View on Fiverr", href: site.links.fiverr },
+    source: { label: "View on Fiverr", href: fiverrReviewUrl },
   },
   {
     quote:
-      "Clear communication, quick replies and no surprises at the end. The Python scripts and the dashboard behind them do exactly what we asked for, and he still answers questions months later.",
-    name: "Priya Nair",
-    role: "Product Manager",
+      "He is AMAZING. His work is great. high quality and delivered ahead of time. thank you so much!",
+    name: "Bizzle1",
+    role: "Client",
+    country: "USA",
     rating: 5,
     // avatar: "/reviews/priya-nair.jpg",
-    source: { label: "View on Fiverr", href: site.links.fiverr },
+    source: { label: "View on Fiverr", href: fiverrReviewUrl },
+  },
+  {
+    quote:
+      "It was a great experience, I would highly recommend his services. Great attention to detail, good knowledge, and fast execution.",
+    name: "Nahid bin rafique",
+    role: "Client",
+    country: "Bangladesh",
+    rating: 5,
+    // avatar: "/reviews/priya-nair.jpg",
+    source: { label: "View on Fiverr", href: fiverrReviewUrl },
+  },
+  {
+    quote: "Exactly as we wanted! Communication was good. Thanks!",
+    name: "Studiodot_nl",
+    role: "Client",
+    country: "Netherlands",
+    rating: 5,
+    // avatar: "/reviews/priya-nair.jpg",
+    source: { label: "View on Fiverr", href: fiverrReviewUrl2 },
   },
 ];

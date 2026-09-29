@@ -206,7 +206,9 @@
     --per-view: 1;
     display: flex;
     transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
-    transform: translateX(calc(-100% * var(--reviews-index, 0) / var(--per-view)));
+    transform: translateX(
+      calc(-100% * var(--reviews-index, 0) / var(--per-view))
+    );
   }
   .reviews-slide {
     flex: 0 0 calc(100% / var(--per-view));
@@ -359,6 +361,71 @@
     box-shadow: 0 12px 26px -10px rgb(var(--tech) / 0.7);
   }
 
+  /* ---------- Stack layer tone (components/Stack.tsx) ---------- */
+  /* Every card in the Stack grid carries a hue of its own, so the five layers
+     read as five groups instead of the accent colour five times over.
+     `--tone-light` / `--tone-dark` are written inline from lib/site.ts and
+     resolved into `--tone` for the theme in play — the same trick `.tech` uses
+     above, so no theme token is re-declared and the section keeps the palette it
+     already had. Everything below is the one hue at different alphas. */
+  .tone {
+    --tone: var(--tone-light, var(--accent));
+  }
+  :root[data-theme="dark"] .tone {
+    --tone: var(--tone-dark, var(--tone-light, var(--accent)));
+  }
+  /* The card: a diagonal wash of the hue over the panel colours. */
+  .tone-card {
+    border-color: rgb(var(--tone) / 0.35);
+    background-image: linear-gradient(
+      152deg,
+      rgb(var(--tone) / 0.16),
+      rgb(var(--panel)) 46%,
+      rgb(var(--panel-2))
+    );
+  }
+  .tone-card:hover,
+  .tone-card:focus-within {
+    border-color: rgb(var(--tone) / 0.72);
+  }
+  /* The header tile, solid enough to carry the layer glyph in white, with a
+     gloss on the top edge and its own colour dropped underneath. */
+  .tone-tile {
+    background-image: linear-gradient(
+      150deg,
+      rgb(var(--tone) / 0.98),
+      rgb(var(--tone) / 0.6)
+    );
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      0 14px 30px -16px rgb(var(--tone) / 0.95);
+  }
+  /* Count pill. */
+  .tone-pill {
+    border-color: rgb(var(--tone) / 0.42);
+    background: rgb(var(--tone) / 0.1);
+    color: rgb(var(--tone));
+  }
+  /* Closing note strip, on the two cards that have one. */
+  .tone-note {
+    border-color: rgb(var(--tone) / 0.34);
+    background: rgb(var(--tone) / 0.07);
+  }
+  .tone-note-mark {
+    color: rgb(var(--tone));
+  }
+  /* The blur that lifts the card on hover. */
+  .tone-glow {
+    background: rgb(var(--tone) / 0.22);
+  }
+  /* Tool chips stay neutral until you point at one, then it takes the card's hue
+     (the base chip colour is the `border-line` / `text-muted` pair, so only the
+     hover state lives here). */
+  .tone-chip:hover {
+    border-color: rgb(var(--tone) / 0.6);
+    color: rgb(var(--tone));
+  }
+
   /* ---------- Progress bar in the About fact cards ---------- */
   /* Filled by default; the reveal resets it and grows it back into place. */
   .stat-bar::after {
@@ -367,11 +434,7 @@
     height: 100%;
     width: 100%;
     border-radius: inherit;
-    background: linear-gradient(
-      90deg,
-      rgb(var(--accent)),
-      rgb(var(--halo))
-    );
+    background: linear-gradient(90deg, rgb(var(--accent)), rgb(var(--halo)));
     transform: scaleX(1);
     transform-origin: left center;
     transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;

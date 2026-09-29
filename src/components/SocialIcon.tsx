@@ -25,7 +25,12 @@ export default function SocialIcon({
   className?: string;
 }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d={paths[name]} />
     </svg>
   );

@@ -105,13 +105,42 @@ export default function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="section">
       <div className="wrap">
-        <div className=" grid items-start grid-cols-1 gap-[clamp(2rem,6vw,5rem)] md:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative">
+          <SectionHead
+            eyebrow="About Me"
+            id="about-title"
+            title="One developer.
+             End-to-end digital solutions."
+            highlight="developer"
+            divider
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[250px] -rotate-[5deg] text-right lg:block"
+          >
+            <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
+              Build . Deploy . Automate
+              <br />
+              End-to-end digital solutions
+            </span>
+            <svg
+              viewBox="0 0 60 44"
+              className="ml-auto mt-1 h-[44px] w-[60px] text-muted/70"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* A curve that leads the eye from the note down to the rule. */}
+              <path d="M52 6Q48 20 34 33" />
+              <path d="M43 32 34 33l1-9" />
+            </svg>
+          </span>
+        </div>
+        <div className=" grid items-start grid-cols-1 gap-[clamp(2rem,3vw,5rem)] md:grid-cols-[1.1fr_0.9fr]">
           <div data-reveal>
-            <SectionHead
-              id="about-title"
-              title="Design and code from one person."
-            />
-            <p className="-mt-6 mb-[18px] max-w-[62ch]">
+            <p className=" mb-[18px] max-w-[62ch]">
               I'm a full-stack web developer with {site.experience} of
               experience, currently working at <strong>{site.company}</strong>,
               a software company in {site.location}. I build complete products
@@ -147,11 +176,20 @@ export default function About() {
                   >
                     <Icon d={factIcons[i]} className="h-[22px] w-[22px]" />
                   </span>
-                  <div className="min-w-0">
-                    <p className="font-display text-[1.08rem] font-semibold leading-tight tracking-tight">
-                      {fact.value}
-                    </p>
-                    <p className="text-[0.9rem] leading-snug text-muted">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex justify-between items-center gap-2 ">
+                      <p className="hidden sm:block font-display text-[1.08rem] font-semibold leading-tight tracking-tight">
+                        {fact.title}
+                      </p>
+                      <p className="sm:hidden font-display text-[1.08rem] font-semibold leading-tight tracking-tight">
+                        {fact.mobileTitle}
+                      </p>
+                      <p className="font-sans text-xs font-semibold leading-tight tracking-tight border border-halo text-halo px-2 py-0.5 rounded-lg">
+                        {fact.value}
+                      </p>
+                    </div>
+
+                    <p className="text-[0.9rem] leading-snug text-muted mt-1">
                       {fact.label}
                     </p>
                   </div>

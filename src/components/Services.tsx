@@ -7,11 +7,39 @@ export default function Services() {
   return (
     <section id="services" aria-labelledby="services-title" className="section">
       <div className="wrap">
-        <SectionHead
-          id="services-title"
-          title="What I can build for you."
-          lede="From a single landing page to a full-stack application with accounts and payments."
-        />
+        <div className="relative">
+          <SectionHead
+            id="services-title"
+            eyebrow="Services"
+            title="What I can build for you."
+            lede="From a single landing page to a full-stack application with accounts and payments."
+            highlight="build"
+            divider
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
+          >
+            <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
+              The right tools
+              <br />
+              for better products
+            </span>
+            <svg
+              viewBox="0 0 60 44"
+              className="ml-auto mt-1 h-[44px] w-[60px] text-muted/70"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* A curve that leads the eye from the note down to the rule. */}
+              <path d="M52 6Q48 20 34 33" />
+              <path d="M43 32 34 33l1-9" />
+            </svg>
+          </span>
+        </div>
         <div className="grid gap-4 md:grid-cols-6">
           {services.map((service, i) => (
             <article
@@ -78,7 +106,9 @@ export default function Services() {
               <Icon d={automation.icon} />
             </span>
             <div className="relative grid gap-2">
-              <h3 className="text-[1.1rem] tracking-tight">{automation.title}</h3>
+              <h3 className="text-[1.1rem] tracking-tight">
+                {automation.title}
+              </h3>
               <p className="max-w-[70ch] text-[0.98rem] text-muted">
                 {automation.body}
               </p>
