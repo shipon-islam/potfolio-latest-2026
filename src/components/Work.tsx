@@ -25,9 +25,9 @@ export default function Work() {
             className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
           >
             <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
-              The right tools
+              Project Showcase.
               <br />
-              for better products
+              Real work. Real results.
             </span>
             <svg
               viewBox="0 0 60 44"

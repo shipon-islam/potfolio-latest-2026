@@ -35,12 +35,12 @@ export default function Stack() {
               from the widths where there is no room beside the copy. */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[250px] -rotate-[5deg] text-right lg:block"
           >
             <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
-              The right tools
+              Built With.
               <br />
-              for better products
+              Modern tools. Clean code.
             </span>
             <svg
               viewBox="0 0 60 44"

@@ -18,12 +18,12 @@ export default function Services() {
           />
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
+            className="pointer-events-none absolute right-0 bottom-0 hidden w-[250px] -rotate-[5deg] text-right lg:block"
           >
             <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
-              The right tools
+              How I Help.
               <br />
-              for better products
+              Turning needs into solutions.
             </span>
             <svg
               viewBox="0 0 60 44"

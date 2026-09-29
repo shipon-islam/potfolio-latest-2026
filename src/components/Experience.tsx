@@ -35,9 +35,9 @@ export default function Experience() {
             className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
           >
             <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
-              The right tools
+              4+ Years.
               <br />
-              for better products
+              Building real products.
             </span>
             <svg
               viewBox="0 0 60 44"
