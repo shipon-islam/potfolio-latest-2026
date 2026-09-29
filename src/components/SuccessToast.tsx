@@ -48,7 +48,7 @@ export default function SuccessToast({
   if (!mounted) return null;
 
   return (
-    <div className="pointer-events-none fixed left-4 right-4 top-4 z-50 sm:left-auto sm:right-6 sm:top-6 sm:w-96">
+    <div className="pointer-events-none fixed left-4 right-4 top-52 z-99! sm:left-auto sm:right-6 sm:top-28 sm:w-96">
       <div
         role="status"
         aria-live="polite"

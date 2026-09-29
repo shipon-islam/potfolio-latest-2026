@@ -408,9 +408,23 @@ export const experience: Experience[] = [
 
 export type Project = {
   name: string;
-  type: "E-commerce" | "Marketplace" | "Business" | "Community" | "Personal";
+  type:
+    | "E-commerce"
+    | "Marketplace"
+    | "Business"
+    | "Community"
+    | "Personal"
+    | "Healthcare & Wellness"
+    | "Real Estate & Property Rental"
+    | "Software & Technology"
+    | "Creative Agency & Digital Services"
+    | "E-commerce & Online Shopping"
+    | "Community & Religious";
+  imageUrl: string;
   meta: string;
   body: string;
+  github: string;
+  liveUrl?: string;
   tags: string[];
   // Optional. Add a live URL and the Work section renders a "Visit site" link.
   link?: string;
@@ -418,60 +432,87 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Online Shopping",
-    type: "E-commerce",
-    meta: "Storefront with search, cart and accounts",
-    body: "A responsive store front with search, cart, account pages and a best-sellers section, designed to work equally well on a phone and a desktop. Built with React and Tailwind CSS on top of a small Node API.",
+    name: "Darul Hikmah Islamic Center",
+    type: "Community & Religious",
+    imageUrl: "/projects/dhic.webp",
+    meta: "USA Mosque Community Platform",
+    body: "A community-focused platform designed to connect Muslims with mosques and Islamic centers across the USA, providing access to mosque information, prayer-related details, events, and community resources. The platform offers a simple and accessible way for users to discover and stay connected with local Islamic communities.",
+    github: "https://github.com/shipon-islam/darul-hikmah-islamic-center",
+    liveUrl: "https://usamosque.vercel.app/",
+    tags: ["Next.js", "Tailwind css", "Firebase"],
+  },
+  {
+    name: "Gentlemend booking platform",
+    type: "Healthcare & Wellness",
+    imageUrl: "/projects/gentlement.webp",
+    meta: "Men’s Aesthetic & Wellness Booking Platform",
+    body: "A full-featured men’s self-care treatment discovery and booking platform, designed to help users explore, compare and book aesthetic, wellness, hair, skin, dental and body treatments. The platform provides fast search, category-based discovery, trusted clinic listings and a streamlined booking experience tailored specifically for men",
+    github: "https://github.com/shipon-islam/gentlemend-booking-platform",
+    liveUrl: "https://gentlemend-booking-platform.vercel.app/",
     tags: ["React.js", "Tailwind CSS", "Node.js"],
   },
+
   {
-    name: "BazarHost",
-    type: "Marketplace",
-    meta: "Multi-vendor marketplace on Next.js",
-    body: "An online marketplace focused on fast product pages and a clean checkout path, with vendor listings, categories and search that stay quick as the catalogue grows. Server rendering keeps the pages indexable by Google.",
-    tags: ["Next.js", "TypeScript", "MongoDB"],
-  },
-  {
-    name: "Common Goods",
-    type: "Marketplace",
-    meta: "Second marketplace build, shared component library",
-    body: "A second marketplace build where I reused a shared component library between projects, which cut the build time roughly in half and keeps the two sites consistent.",
-    tags: ["Next.js", "Tailwind CSS", "Express.js"],
-  },
-  {
-    name: "Burger Lover",
-    type: "Business",
-    meta: "Restaurant website with menu and delivery call to action",
-    body: "A bold restaurant site with a menu, story page and an express delivery call to action that stays visible on mobile, where most of the visitors arrive.",
+    name: "HCL Software",
+    type: "Software & Technology",
+    imageUrl: "/projects/hcl-software.webp",
+    meta: "HCL Software & Technology Services Website",
+    body: "A modern software company website designed to showcase digital solutions, software services, and technology expertise. The platform presents services and business offerings through a clean, professional interface, helping potential clients explore solutions and connect with the company.",
+    github: "https://github.com/shipon-islam/hcl-softwar",
+    liveUrl: "https://hcl-softwar.vercel.app/",
     tags: ["React.js", "Tailwind CSS"],
   },
   {
-    name: "Rental APT",
-    type: "Business",
-    meta: "Property and rental listings with an application form",
-    body: "A property and rental site with a gallery, contact page and an application form for affordable housing. The form validates on the client and posts to a small Express endpoint.",
-    tags: ["Next.js", "Express.js", "MongoDB"],
+    name: "Extrema Deals",
+    type: "E-commerce & Online Shopping",
+    imageUrl: "/projects/extrema-deals.webp",
+    meta: "Online Shopping And Deals Platform",
+    body: "An online shopping platform designed to help customers discover products, explore different categories, and find attractive deals in one place. The platform focuses on smooth product browsing and a convenient shopping experience, making it easy for users to explore products and make purchasing decisions.",
+    github: "https://github.com/shipon-islam/extrema-deals",
+    liveUrl: "https://extrema-deals.onrender.com/",
+    tags: ["React.js", "Tailwind CSS", "Express js"],
   },
   {
-    name: "DHCC Community",
-    type: "Community",
-    meta: "Non-profit website with prayer times and donations",
-    body: "A website for a community organization with prayer times, news, announcements and a donate button that leads visitors to give, all editable by non-technical volunteers.",
-    tags: ["React.js", "Tailwind CSS", "Firebase"],
+    name: "BazarHost",
+    type: "E-commerce",
+    imageUrl: "/projects/bazarhost.webp",
+    meta: "Marketplace with products, search and checkout",
+    body: "A full-featured e-commerce marketplace built for Bangladeshi customers, with product discovery, category browsing, search, cart and checkout experiences. The platform is designed for fast navigation and scalable product management, providing a smooth shopping experience across electronics, fashion, home & living, and more.",
+    github: "https://github.com/shipon-islam/bazarhost",
+    liveUrl: "https://bazarhost.com/",
+    tags: ["Next.js", "TypeScript", "MongoDB"],
   },
   {
-    name: "Baitul Mukarram Masjid",
-    type: "Community",
-    meta: "Live prayer-time board for display in the hall",
-    body: "A live prayer-time board showing the current time, Shuruq and each prayer with its iqamah time, made to be read from across a room and updated automatically.",
-    tags: ["JavaScript", "APIs"],
+    name: "USA Rentalapt",
+    type: "Real Estate & Property Rental",
+    imageUrl: "/projects/usarentalapt.webp",
+    meta: "USA Apartment Rental Platform",
+    body: "A modern real estate platform focused on helping users find apartments and rental properties across the USA, with property search, location-based browsing, detailed listings, and essential property information. The platform offers a clean and intuitive experience for exploring available rentals and finding suitable homes.",
+    github: "https://github.com/shipon-islam/usarentalapt",
+    liveUrl: "https://usarentalapt-liard.vercel.app/",
+    tags: ["Next.js", "Tailwind CSS", "Node.js"],
   },
+
   {
-    name: "Personal Portfolio",
+    name: "Vastly",
+    type: "Creative Agency & Digital Services",
+    imageUrl: "/projects/vastly.webp",
+    meta: "A Creative Digital Agency Website",
+    body: "A creative agency website showcasing services across videography, photography, media production, web development, marketing, and graphic design. The platform presents the agency’s work and capabilities through a visually engaging interface, helping potential clients explore services and get in touch for new projects.",
+    github: "https://github.com/shipon-islam/bazarhost",
+    liveUrl: "https://vastly-iota.vercel.app/",
+    tags: ["HTML", "Tailwind Css"],
+  },
+
+  {
+    name: "Professional Portfolio",
     type: "Personal",
-    meta: "This site: Next.js, Tailwind CSS, Docker",
-    body: "The site you are reading: a statically rendered Next.js app with a dark and light theme, hand-built SVG animation, full SEO tags and JSON-LD, and a multi-stage Docker build for deployment.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Docker"],
+    imageUrl: "/projects/indian-potfolio.webp",
+    meta: "Professional Developer Portfolio Showcasing Projects",
+    body: "A personal developer portfolio created to showcase application development experience, selected projects, technical expertise, and professional achievements. The website organizes portfolio work across websites, mobile applications, and AI projects, while highlighting skills, certifications, client feedback, and professional experience.",
+    github: "https://github.com/shipon-islam/indian-potfolio",
+    liveUrl: "https://indian-potfolio.onrender.com/",
+    tags: ["HTML", "Bootstrap 5"],
   },
 ];
 

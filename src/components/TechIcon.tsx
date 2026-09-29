@@ -235,6 +235,14 @@ function channels(hex: string) {
 // can never render as a hole in the grid.
 function resolve(name: string) {
   const key = name.toLowerCase();
+  // Exact matches first
+  if (key === "node.js" || key === "node") {
+    return { ...brands.nodedotjs, filled: true };
+  }
+
+  if (key === "express.js" || key === "express") {
+    return { ...brands.express, filled: true };
+  }
 
   for (const [pattern, slug] of brandRules) {
     if (!pattern.test(key)) continue;

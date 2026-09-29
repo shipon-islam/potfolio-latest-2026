@@ -214,7 +214,10 @@ export default function Contact() {
                         <path d={envelope} />
                       </svg>
                     ) : (
-                      <SocialIcon name={channel.icon} className="h-4 w-4" />
+                      <SocialIcon
+                        name={channel.icon}
+                        className={`${channel.icon === "fiverr" ? "h-[1.4rem] w-[1.4rem]" : "h-4 w-4"}`}
+                      />
                     )}
                   </span>
                   <span className="min-w-0 flex-1">

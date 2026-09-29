@@ -11,7 +11,7 @@ const orbit = [
   { name: "React.js", className: "left-[13%] top-[-9%] animate-float-a" },
   { name: "Docker", className: "left-[58%] top-[-15%] animate-float-c" },
   { name: "Next.js", className: "right-[-10%] top-[14%] animate-float-b" },
-  { name: "Node.js", className: "left-[-16%] bottom-[36%] animate-float-b" },
+  { name: "Javascript", className: "left-[-16%] bottom-[36%] animate-float-b" },
   {
     name: "TypeScript",
     className: "right-[-14%] bottom-[24%] animate-float-c",
@@ -161,7 +161,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="btn btn-primary group relative overflow-hidden"
+              className="btn btn-primary group relative overflow-hidden "
             >
               {/* A light streak that crosses the button on hover. The keyframe
                   ends at opacity 0, so nothing is left behind. */}
@@ -185,8 +185,8 @@ export default function Hero() {
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
-            <a href="#work" className="btn spot group hidden sm:inline-flex">
-              See my work
+            <a href="#work" className="btn spot group  sm:inline-flex">
+              See <span className="hidden sm:inline-block">my</span>work
               <svg
                 width="15"
                 height="15"
@@ -236,7 +236,10 @@ export default function Hero() {
                     aria-label={`${social.label} (opens in a new tab)`}
                     className="spot flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 text-[0.88rem] font-semibold text-muted transition duration-200 hover:-translate-y-px hover:border-accent hover:text-accent"
                   >
-                    <SocialIcon name={social.icon} className="h-4 w-4" />
+                    <SocialIcon
+                      name={social.icon}
+                      className={`${social.icon === "fiverr" ? "h-[1.3rem] w-[1.3rem]" : "h-4 w-4"}`}
+                    />
                     {social.label}
                   </a>
                 </li>

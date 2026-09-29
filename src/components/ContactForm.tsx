@@ -96,13 +96,12 @@ export default function ContactForm() {
       });
       form.reset();
       setToastOpen(true);
+      setNote("");
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
-
-    setNote("Your email app should open with the message ready to send.");
   };
 
   return (
