@@ -72,25 +72,31 @@ export default function Stack() {
                 className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-accent/20 opacity-0 blur-3xl transition duration-300 group-hover:opacity-100"
                 aria-hidden="true"
               />
-
-              <div className="relative flex items-start gap-4">
-                <span
-                  className="grid h-14 w-14 flex-none place-items-center rounded-[18px] bg-gradient-to-br from-accent/25 to-halo/5 text-accent ring-1 ring-inset ring-accent/25 transition duration-200 group-hover:scale-105"
-                  aria-hidden="true"
-                >
-                  <Icon d={row.icon} className="h-7 w-7 text-accent" />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                    <h3 className="text-[1.28rem] tracking-tight">
-                      {row.layer}
-                    </h3>
-                    <span className="ml-auto rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-accent">
-                      {row.items.length} tools
-                    </span>
+              <div>
+                <div className="relative flex items-center sm:items-start gap-2 sm:gap-4">
+                  <span
+                    className="grid h-14 w-14 flex-none place-items-center rounded-[18px] bg-gradient-to-br from-accent/25 to-halo/5 text-accent ring-1 ring-inset ring-accent/25 transition duration-200 group-hover:scale-105"
+                    aria-hidden="true"
+                  >
+                    <Icon d={row.icon} className="h-7 w-7 text-accent" />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                      <h3 className="text-[1.1rem] sm:text-[1.28rem] tracking-tight">
+                        {row.layer}
+                      </h3>
+                      <span className="ml-auto rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-accent">
+                        {row.items.length} tools
+                      </span>
+                    </div>
+                    <p className="hidden mt-2 text-[0.95rem] text-muted">
+                      {row.blurb}
+                    </p>
                   </div>
-                  <p className="mt-2 text-[0.95rem] text-muted">{row.blurb}</p>
                 </div>
+                <p className="sm:hidden mt-2 text-[0.95rem] text-muted">
+                  {row.blurb}
+                </p>
               </div>
 
               <ul className="relative mt-6 flex list-none flex-wrap gap-2.5 p-0">
@@ -113,11 +119,7 @@ export default function Stack() {
                       d={row.note.icon}
                       className="h-[22px] w-[22px] flex-none text-accent"
                     />
-                    <p
-                      className={`text-[0.95rem] leading-snug text-fg ${
-                        row.note.italic ? "italic" : ""
-                      }`}
-                    >
+                    <p className={`text-[0.95rem] leading-snug text-fg `}>
                       {row.note.text}
                     </p>
                   </div>

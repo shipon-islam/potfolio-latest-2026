@@ -173,7 +173,12 @@ export default function Contact() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#16a34a] opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#16a34a]" />
                 </span>
-                <span>Available for freelance work and full-time roles</span>
+                <span>
+                  Available for freelance{" "}
+                  <span className="hidden sm:inline">
+                    work and full-time roles
+                  </span>
+                </span>
               </span>
               <ResumeButton className="text-sm px-4 py-1.5" />
             </div>

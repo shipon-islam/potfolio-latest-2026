@@ -127,7 +127,7 @@ export default function Hero() {
             ))}
           </ul>
           <ul
-            className="animate-rise-in mt-9 grid list-none grid-cols-2 gap-x-5 gap-y-6 p-0 lg:grid-cols-3 lg:gap-x-0"
+            className="hidden animate-rise-in mt-9 sm:grid list-none grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-6 p-0 lg:gap-x-0"
             style={enter(480)}
           >
             {heroStats.map((stat) => (

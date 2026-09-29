@@ -1,7 +1,7 @@
 "use client";
 
-import { site } from "@/lib/site";
 import { FormEvent, useState } from "react";
+import SuccessToast from "./SuccessToast";
 
 // Stroked glyphs on the same 24x24 grid as Icon.tsx: one per field, the chat
 // bubble in the heading pill, and the arrow in the button.
@@ -71,10 +71,14 @@ function FieldIcon({ d }: { d: string }) {
 
 export default function ContactForm() {
   const [note, setNote] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [toastOpen, setToastOpen] = useState(false);
+  const [error, setError] = useState("");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
@@ -83,9 +87,21 @@ export default function ContactForm() {
       setNote("Fill in your name, email and project details.");
       return;
     }
+    try {
+      setLoading(true);
+      setError("");
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: data,
+      });
+      form.reset();
+      setToastOpen(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
 
-    const body = `${message}\n\n${name}\n${email}`;
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(`Project inquiry from ${name}`)}&body=${encodeURIComponent(body)}`;
     setNote("Your email app should open with the message ready to send.");
   };
 
@@ -184,7 +200,8 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="btn btn-primary mt-1 w-full gap-2.5 rounded-2xl bg-gradient-to-r from-btn via-accent to-halo px-6 py-3.5 text-[0.98rem]"
+            disabled={loading}
+            className="btn btn-primary disabled:bg-red-500 mt-1 w-full gap-2.5 rounded-2xl bg-gradient-to-r from-btn via-accent to-halo px-6 py-3.5 text-[0.98rem]"
           >
             <svg
               viewBox="0 0 24 24"
@@ -195,7 +212,7 @@ export default function ContactForm() {
               <path d={plane[0]} />
               <path d={plane[1]} className="opacity-60" />
             </svg>
-            Send message
+            {loading ? "Sending..." : "Send message"}
             <svg
               className="h-4 w-4 flex-none"
               viewBox="0 0 24 24"
@@ -214,6 +231,12 @@ export default function ContactForm() {
             {note}
           </p>
         </form>
+        <SuccessToast
+          open={toastOpen}
+          onClose={() => setToastOpen(false)}
+          title="Message sent"
+          message="Thanks for reaching out. I'll reply within a day."
+        />
       </div>
     </div>
   );
