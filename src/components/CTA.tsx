@@ -26,17 +26,17 @@ export default function CTA({
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-halo/10" />
 
           <div className="relative">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-accent">
               {topText}
             </p>
 
-            <h2 className="mx-auto mt-4 max-w-2xl text-3xl sm:text-4xl">
+            <h2 className="mx-auto mt-4 max-w-2xl text-[1.6rem] sm:text-3xl md:text-4xl">
               {title}
             </h2>
 
             <p className="mx-auto mt-5 max-w-xl text-muted">{subtitle}</p>
             {outlineBtnText ? (
-              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 ">
                 <Link href="/contact" className="btn btn-primary">
                   {buttonText}
                   <span>→</span>
@@ -47,7 +47,7 @@ export default function CTA({
                 </Link>
               </div>
             ) : (
-              <Link href="/contact" className="btn btn-primary mt-8">
+              <Link href="/contact" className="btn btn-primary mt-8  ">
                 {buttonText}
                 <span>→</span>
               </Link>
