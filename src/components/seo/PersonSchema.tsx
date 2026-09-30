@@ -1,4 +1,4 @@
-import { heroSkills, site } from "@/lib/site";
+import { heroSkills, site } from "@/data/site";
 
 export default function PersonSchema() {
   const jsonLd = {

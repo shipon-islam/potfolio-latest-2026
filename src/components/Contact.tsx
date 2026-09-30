@@ -1,4 +1,4 @@
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import type { CSSProperties } from "react";
 import ContactForm from "./ContactForm";
 import ResumeButton from "./ResumeButton";

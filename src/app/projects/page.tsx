@@ -1,3 +1,5 @@
+import CTA from "@/components/CTA";
+import SectionHead from "@/components/SectionHead";
 import { projects } from "@/data/projects";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -11,35 +13,44 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="relative overflow-hidden">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 backdrop-grid opacity-60" />
-
-      {/* Hero */}
+    <main className="">
+      {/* Projects */}
       <section className="section">
         <div className="wrap">
-          <div data-reveal className="mx-auto max-w-4xl text-center">
-            <span className="inline-flex rounded-full border border-line bg-panel px-4 py-2 text-sm font-semibold text-accent shadow-sm">
-              Selected Work
+          <div className="relative">
+            <SectionHead
+              id="projects-title"
+              eyebrow="Projects"
+              title="Selected Projects."
+              lede="E-commerce, marketplaces, business and community sites, plus personal builds. Open a project to see what I did on it."
+              highlight="work"
+              divider
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute right-0 bottom-0 hidden w-[200px] -rotate-[5deg] text-right lg:block"
+            >
+              <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
+                Project Showcase.
+                <br />
+                Real work. Real results.
+              </span>
+              <svg
+                viewBox="0 0 60 44"
+                className="ml-auto mt-1 h-[44px] w-[60px] text-muted/70"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {/* A curve that leads the eye from the note down to the rule. */}
+                <path d="M52 6Q48 20 34 33" />
+                <path d="M43 32 34 33l1-9" />
+              </svg>
             </span>
-
-            <h1 className="mt-7 text-4xl sm:text-5xl lg:text-7xl">
-              Projects I’ve
-              <span className="grad-text"> built.</span>
-            </h1>
-
-            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-muted">
-              A selection of websites, web applications, marketplaces, business
-              platforms, and digital products I’ve worked on.
-            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Projects */}
-      <section className="section pt-0">
-        <div className="wrap">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
               <article
                 key={project.slug}
@@ -54,7 +65,7 @@ export default function ProjectsPage() {
                 {/* Visual placeholder */}
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
-                    src={project.image}
+                    src={project.imageUrl}
                     alt={project.title}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"
@@ -63,7 +74,7 @@ export default function ProjectsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
                   <span className="absolute left-6 top-6 rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-xs font-bold text-white backdrop-blur">
-                    {project.number}
+                    {project.id}
                   </span>
                 </div>
                 {/* Content */}
@@ -74,7 +85,9 @@ export default function ProjectsPage() {
                         {project.category}
                       </p>
 
-                      <h2 className="mt-3 text-2xl">{project.title}</h2>
+                      <h2 className="mt-3 text-2xl lg:text-xl xl:text-2xl">
+                        {project.title}
+                      </h2>
                     </div>
 
                     <Link
@@ -108,19 +121,20 @@ export default function ProjectsPage() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-primary"
+                        className="btn btn-primary text-sm"
                       >
-                        Live Preview
+                        Live{" "}
+                        <span className="lg:hidden xl:inline">Preview</span>
                         <span>↗</span>
                       </a>
                     )}
 
-                    {project.githubUrl && (
+                    {project.github && (
                       <a
-                        href={project.githubUrl}
+                        href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn"
+                        className="btn text-sm"
                       >
                         GitHub
                         <span>↗</span>
@@ -133,40 +147,12 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-
-      {/* Bottom statement */}
-      <section className="section">
-        <div className="wrap">
-          <div
-            data-reveal
-            className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-10 text-center shadow-[0_30px_80px_-45px_rgb(11_23_48/0.45)] sm:p-16"
-          >
-            <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-
-            <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-halo/10 blur-3xl" />
-
-            <div className="relative">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
-                From concept to deployment
-              </p>
-
-              <h2 className="mx-auto mt-4 max-w-3xl text-3xl sm:text-4xl">
-                Have an idea for the next project?
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-xl leading-7 text-muted">
-                I can help turn your idea into a fast, responsive, and reliable
-                web application.
-              </p>
-
-              <Link href="/contact" className="btn btn-primary mt-8">
-                Start a Project
-                <span>→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA
+        topText="From concept to deployment"
+        title="Have an idea for the next project?"
+        subtitle="I can help turn your idea into a fast, responsive, and reliable
+                web application."
+      />
     </main>
   );
 }

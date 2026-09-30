@@ -1,3 +1,4 @@
+import CTA from "@/components/CTA";
 import { projects } from "@/data/projects";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -42,9 +43,6 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <main className="relative overflow-hidden">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 backdrop-grid opacity-50" />
-
       {/* Hero */}
       <section className="section">
         <div className="wrap">
@@ -53,31 +51,29 @@ export default async function ProjectPage({ params }: Props) {
             <div data-reveal="left">
               <div className="flex items-center gap-3">
                 <span className="text-sm font-bold text-accent">
-                  {project.number}
+                  {project.id}
                 </span>
 
-                <span className="h-px w-10 bg-accent/50" />
+                <span className="h-px w-4 sm:w-10 bg-accent/50 " />
 
                 <span className="text-sm font-bold uppercase tracking-[0.2em] text-muted">
                   {project.category}
                 </span>
               </div>
 
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl">
-                {project.title}
-              </h1>
+              <h1 className="mt-6 text-3xl sm:text-5xl">{project.title}</h1>
 
-              <p className="mt-7 max-w-xl text-lg leading-8 text-muted">
+              <p className="mt-4 sm:mt-7 max-w-xl sm:text-lg leading-8 text-muted">
                 {project.description}
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-wrap gap-3 text-base">
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary"
+                    className="btn btn-primary "
                   >
                     Live Preview
                     <span>↗</span>
@@ -85,7 +81,7 @@ export default async function ProjectPage({ params }: Props) {
                 )}
 
                 <Link href="/projects" className="btn">
-                  ← All Projects
+                  <span className="hidden sm:inline">All</span> Projects
                 </Link>
               </div>
             </div>
@@ -97,7 +93,7 @@ export default async function ProjectPage({ params }: Props) {
               <div className="spot relative overflow-hidden rounded-[2rem] border border-line bg-panel p-3 shadow-[0_30px_80px_-40px_rgb(11_23_48/0.55)]">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
                   <Image
-                    src={project.image}
+                    src={project.imageUrl}
                     alt={project.title}
                     fill
                     priority
@@ -119,7 +115,7 @@ export default async function ProjectPage({ params }: Props) {
                 About the project
               </p>
 
-              <h2 className="mt-4 text-3xl sm:text-4xl">Project overview</h2>
+              <h2 className="mt-4 text-3xl md:text-4xl">Project overview</h2>
             </div>
 
             <div data-reveal="right">
@@ -233,46 +229,14 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {/* Project CTA */}
-      <section className="section pt-0">
-        <div className="wrap">
-          <div
-            data-reveal
-            className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-10 text-center sm:p-16"
-          >
-            <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-
-            <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-halo/10 blur-3xl" />
-
-            <div className="relative">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
-                Have a similar project?
-              </p>
-
-              <h2 className="mx-auto mt-4 max-w-3xl text-3xl sm:text-4xl">
-                Let's build something like this for you.
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-xl leading-7 text-muted">
-                Have an idea or a project that needs development? Let’s talk
-                about it.
-              </p>
-
-              <div className="mt-8 flex justify-center gap-3">
-                <Link href="/contact" className="btn btn-primary">
-                  Start a Project
-                  <span>→</span>
-                </Link>
-
-                <Link href="/projects" className="btn">
-                  More Projects
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA
+        topText="Have a similar project?"
+        title="Let's build something like this for you."
+        subtitle="Have an idea or a project that needs development? Let’s talk
+                about it."
+        outlineBtnText="More Projects"
+        outLineBtnLink="/projects"
+      />
     </main>
   );
 }

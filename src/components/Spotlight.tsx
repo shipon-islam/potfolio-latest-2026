@@ -93,7 +93,10 @@ export default function Spotlight() {
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
       document.removeEventListener("pointermove", onPointerMove);
-      document.documentElement.removeEventListener("pointerleave", onLeaveWindow);
+      document.documentElement.removeEventListener(
+        "pointerleave",
+        onLeaveWindow,
+      );
       window.removeEventListener("blur", onLeaveWindow);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);

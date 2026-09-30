@@ -1,5 +1,5 @@
-import type { ContactChannel } from "@/lib/site";
-import { contactChannels, footerLinks, site, socials } from "@/lib/site";
+import type { ContactChannel } from "@/data/site";
+import { contactChannels, footerLinks, site, socials } from "@/data/site";
 import Image from "next/image";
 import Icon from "./Icon";
 import SocialIcon from "./SocialIcon";

@@ -1,22 +1,22 @@
 import CTA from "@/components/CTA";
-import Services from "@/components/Services";
+import Skills from "@/components/Skills";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services | Shipon Islam",
+  title: "Skills | Full-Stack Web Developer",
   description:
-    "Explore web development, Next.js, React, backend, DevOps, Python, and AI workflow automation services by Shipon Islam.",
+    "Explore Shipon Islam’s web development skills in React, Next.js, Node.js, TypeScript, MongoDB, Python, Docker, DevOps, and AI workflow automation.",
 };
 
-export default function ServicesPage() {
+export default function SkillsPage() {
   return (
     <main>
-      <Services />
+      <Skills />
       <CTA
         topText="Have a project?"
         title="Let's build something useful together."
         subtitle="Tell me what you are building and I’ll help turn your idea into
-                a modern, scalable web solution."
+                      a modern, scalable web solution."
       />
     </main>
   );

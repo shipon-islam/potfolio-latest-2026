@@ -1,16 +1,23 @@
-import About from "@/components/About";
+import Contact from "@/components/Contact";
+import CTA from "@/components/CTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact | Full-Stack Web Developer",
   description:
-    "Reach out to Shipon Islam for expert full-stack web development. Specializing in modern Next.js, React, and Node.js solutions. Let’s collaborate!",
+    "Get in touch with Shipon Islam for professional full-stack web development, custom websites, web applications, AI automation, and reliable development solutions.",
 };
 
 export default function ContactPage() {
   return (
     <main>
-      <About />
+      <Contact />
+      <CTA
+        topText="Have a project?"
+        title="Let's build something useful together."
+        subtitle="Tell me what you are building and I’ll help turn your idea into
+                            a modern, scalable web solution."
+      />
     </main>
   );
 }

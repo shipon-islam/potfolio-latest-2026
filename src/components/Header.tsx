@@ -1,25 +1,19 @@
 "use client";
 
-import { useMemo } from "react";
-import { nav, site } from "@/lib/site";
+import { nav, site } from "@/data/site";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import MobileNav from "./MobileNav";
 import ThemeToggle from "./ThemeToggle";
-import { useActiveSection } from "@/hooks/useActiveSection";
 
 export default function Header() {
-  const sectionIds = useMemo(
-    () => nav.map((item) => item.href.replace(/^#/, "")),
-    []
-  );
-  const activeId = useActiveSection(sectionIds);
-
+  const path = usePathname();
   return (
     <header className="sticky top-0 z-20 border-b border-line bg-bg/80 pt-[env(safe-area-inset-top,0px)] backdrop-blur-md">
       {/* `relative` is the anchor for the mobile dropdown panel. */}
       <div className="wrap relative flex min-h-[68px] items-center justify-between gap-3 py-2.5 sm:gap-4">
         <a
-          href="#top"
+          href="/"
           aria-label={`${site.name}, home`}
           className="flex items-center gap-2.5 whitespace-nowrap"
         >
@@ -46,13 +40,14 @@ export default function Header() {
         {/* Desktop nav. Below `md` the MobileNav dropdown takes over. */}
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           {nav.map((item) => {
-            const isActive = activeId === item.href.replace(/^#/, "");
+            const isActive = path === item.href.replace(/^#/, "");
+
             return (
               <a
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "true" : undefined}
-                className={`spot whitespace-nowrap rounded-lg px-3 py-2 text-[0.92rem] font-semibold transition ${
+                className={`spot whitespace-nowrap rounded-lg px-3 py-2 text-[0.92rem] font-semibold transition ${item.label.toLowerCase() === "experience" && "hidden lg:inline-block"} ${item.label.toLowerCase() === "contact" && "hidden"} ${
                   isActive
                     ? "bg-panel2 text-accent shadow-sm"
                     : "text-muted hover:bg-panel2 hover:text-fg"
@@ -65,16 +60,15 @@ export default function Header() {
         </nav>
         <div className="flex flex-none items-center gap-2">
           <a
-            href="#contact"
+            href="/contact"
             className="btn btn-primary hidden px-5 py-2.5 text-[0.92rem] sm:inline-flex"
           >
             Hire me
           </a>
           <ThemeToggle />
-          <MobileNav activeId={activeId} />
+          <MobileNav activeId={path} />
         </div>
       </div>
     </header>
   );
 }
-

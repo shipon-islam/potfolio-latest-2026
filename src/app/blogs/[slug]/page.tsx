@@ -1,3 +1,5 @@
+import CTA from "@/components/CTA";
+import SectionHead from "@/components/SectionHead";
 import { blogPosts } from "@/data/blog";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -49,15 +51,47 @@ export default async function BlogPostPage({ params }: Props) {
     currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
   return (
-    <main className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10 backdrop-grid opacity-50" />
-
+    <main>
       {/* Hero */}
       <section className="section pb-10">
         <div className="wrap">
-          <div className="mx-auto max-w-4xl">
-            <div data-reveal className="text-center">
-              <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="">
+            <div data-reveal>
+              <div className="relative">
+                <SectionHead
+                  id="blog-title"
+                  eyebrow={post.category}
+                  title={post.title}
+                  lede={post.excerpt}
+                  highlight={post.category}
+                  divider
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-0 bottom-0 hidden w-[280px] -rotate-[5deg] text-right lg:block"
+                >
+                  <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
+                    Let’s dive in.
+                    <br />
+                    Exploring the ideas behind the story.
+                  </span>
+
+                  <svg
+                    viewBox="0 0 60 44"
+                    className="ml-auto mt-1 h-[44px] w-[60px] text-muted/70"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {/* A curve that leads the eye from the note down to the rule. */}
+                    <path d="M52 6Q48 20 34 33" />
+                    <path d="M43 32 34 33l1-9" />
+                  </svg>
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center  gap-3 ">
                 <span className="rounded-full bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-accent">
                   {post.category}
                 </span>
@@ -66,14 +100,6 @@ export default async function BlogPostPage({ params }: Props) {
 
                 <span className="text-sm text-muted">{post.readTime}</span>
               </div>
-
-              <h1 className="mt-7 text-4xl leading-tight sm:text-5xl lg:text-6xl">
-                {post.title}
-              </h1>
-
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted">
-                {post.excerpt}
-              </p>
             </div>
 
             {/* Featured image */}
@@ -96,9 +122,9 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* Article */}
-      <section className="section pt-8">
+      <section className="section pt-10">
         <div className="wrap">
-          <div className="grid gap-12 lg:grid-cols-[1fr_280px]">
+          <div className="grid gap-12 lg:grid-cols-[1fr_280px] ">
             {/* Content */}
             <article className="mx-auto w-full max-w-3xl">
               {post.content.map((section, index) => (
@@ -165,7 +191,7 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
 
               <div className="mt-5">
-                <Link href="/blog" className="btn w-full justify-center">
+                <Link href="/blogs" className="btn w-full justify-center">
                   ← All Articles
                 </Link>
               </div>
@@ -223,40 +249,14 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* CTA */}
       <section className="section">
-        <div className="wrap">
-          <div
-            data-reveal
-            className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-10 text-center sm:p-16"
-          >
-            <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-
-            <div className="relative">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
-                Need development help?
-              </p>
-
-              <h2 className="mx-auto mt-4 max-w-3xl text-3xl sm:text-4xl">
-                Have an idea for your next project?
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-xl leading-7 text-muted">
-                I build modern websites, web applications, APIs, and automation
-                systems.
-              </p>
-
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="btn btn-primary">
-                  Start a Project
-                  <span>→</span>
-                </Link>
-
-                <Link href="/projects" className="btn">
-                  View Projects
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CTA
+          topText="Need development help?"
+          title="Have an idea for your next project?"
+          subtitle="I build modern websites, web applications, APIs, and automation
+                systems."
+          outlineBtnText="View Blogs"
+          outLineBtnLink="/blog"
+        />
       </section>
     </main>
   );

@@ -1,4 +1,4 @@
-import { experience } from "@/lib/site";
+import { experience } from "@/data/experience";
 import type { CSSProperties } from "react";
 import Icon from "./Icon";
 import SectionHead from "./SectionHead";

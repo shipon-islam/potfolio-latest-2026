@@ -1,25 +1,9 @@
 "use client";
-
-import { reviews, type Review } from "@/lib/site";
+import { reviews, type Review } from "@/data/reviews";
 import Image from "next/image";
 import type { CSSProperties, KeyboardEvent, TouchEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
-
-// Client review slider, used by components/Reviews.tsx.
-//
-// CSS owns the layout: globals.css sets `--per-view` (1 card on mobile, 2 from
-// `md`, 3 from `lg`) and slides the track by `--reviews-index` steps of that
-// size. This component keeps the index, reads `--per-view` back for the dots and
-// the autoplay limit, and writes only the index — so the first paint is right at
-// every width and moving the slider never measures anything.
-//
-// Autoplay runs every AUTOPLAY_MS and wraps at the end. It takes a break while
-// the pointer or keyboard focus is inside the slider, and stops for good once
-// the visitor drives it themselves (arrows, dots or a swipe) — that is the
-// "pause on interaction" behaviour, and it means the slider never fights the
-// reader. It also never runs for `prefers-reduced-motion: reduce` or in a hidden
-// tab.
 const AUTOPLAY_MS = 5500;
 const SWIPE_MIN_PX = 40;
 

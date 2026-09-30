@@ -233,6 +233,7 @@
      `prefers-reduced-motion: reduce` at the bottom of this file.
      `--reveal-delay` staggers a row of cards; the component that renders them
      sets it (e.g. Facts in About). */
+
   html.js [data-reveal] {
     opacity: 0;
     transform: translateY(26px);

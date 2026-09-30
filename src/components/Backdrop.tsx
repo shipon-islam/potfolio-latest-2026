@@ -1,13 +1,3 @@
-// Page-wide decorative background, mounted once in app/layout.tsx.
-//
-// Three blurred colour fields drift behind every section, plus a faint blueprint
-// grid fading out under the hero. It is `fixed`, so the page simply slides over
-// it, and it is `aria-hidden` because none of it carries meaning.
-//
-// The colours come from the theme tokens (globals.css) so the whole backdrop
-// follows the dark/light switch: `--halo`, `--btn` and `--accent` are redefined
-// per theme. Motion is `animate-drift-*` from tailwind.config.ts, which
-// globals.css switches off for `prefers-reduced-motion: reduce`.
 export default function Backdrop() {
   return (
     <div

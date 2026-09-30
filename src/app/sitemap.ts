@@ -1,7 +1,7 @@
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...projectUrls,
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/blogs`,
       lastModified: new Date(),
     },
     ...blogUrls,

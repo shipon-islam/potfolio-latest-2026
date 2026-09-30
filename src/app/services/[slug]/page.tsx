@@ -1,3 +1,5 @@
+import CTA from "@/components/CTA";
+import TechIcon from "@/components/TechIcon";
 import { services } from "@/data/services";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -38,10 +40,7 @@ export default async function ServicePage({ params }: Props) {
   }
 
   return (
-    <main className="relative overflow-hidden">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 backdrop-grid opacity-50" />
-
+    <main>
       {/* Hero */}
       <section className="section">
         <div className="wrap">
@@ -49,17 +48,17 @@ export default async function ServicePage({ params }: Props) {
             <div data-reveal="left">
               <div className="flex items-center gap-3">
                 <span className="text-sm font-bold text-accent">
-                  {service.number}
+                  {service.id}
                 </span>
 
-                <span className="h-px w-10 bg-accent/50" />
+                <span className="h-px w-4 sm:w-10 bg-accent/50" />
 
                 <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
                   Service
                 </span>
               </div>
 
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl">
                 {service.title}
               </h1>
 
@@ -74,7 +73,7 @@ export default async function ServicePage({ params }: Props) {
                 </Link>
 
                 <Link href="/projects" className="btn">
-                  View Projects
+                  <span className="hidden sm:inline">View</span>Projects
                 </Link>
               </div>
             </div>
@@ -94,8 +93,15 @@ export default async function ServicePage({ params }: Props) {
                   <div className="h-2 w-24 rounded-full bg-accent/30" />
                   <div className="mt-4 h-3 w-full rounded-full bg-panel-2" />
                   <div className="mt-3 h-3 w-4/5 rounded-full bg-panel-2" />
+                  <ul className="flex justify-end gap-2 flex-wrap">
+                    {service.technologies.map((tech) => (
+                      <li>
+                        <TechIcon name={tech} />
+                      </li>
+                    ))}
+                  </ul>
                   <div className="mt-8 grid grid-cols-2 gap-3">
-                    <div className="h-24 rounded-xl bg-panel-2" />
+                    <div className="h-24 rounded-xl bg-accent/10" />
                     <div className="h-24 rounded-xl bg-accent/10" />
                   </div>
                 </div>
@@ -232,40 +238,13 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="section pt-0">
-        <div className="wrap">
-          <div
-            data-reveal
-            className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-10 text-center sm:p-16"
-          >
-            <div className="pointer-events-none absolute -left-20 -top-20 h-60 w-60 rounded-full bg-accent/10 blur-3xl" />
-
-            <div className="pointer-events-none absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-halo/10 blur-3xl" />
-
-            <div className="relative">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
-                Let's work together
-              </p>
-
-              <h2 className="mx-auto mt-4 max-w-3xl text-3xl sm:text-4xl">
-                Ready to build your next project?
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-xl text-muted">
-                Let’s discuss your requirements and find the right technical
-                solution for your project.
-              </p>
-
-              <Link href="/contact" className="btn btn-primary mt-8">
-                Get in Touch
-                <span>→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA
+        topText="Let's work together"
+        title="Ready to build your next project?"
+        subtitle="Let’s discuss your requirements and find the right technical
+                solution for your project."
+        buttonText="Get in Touch"
+      />
     </main>
   );
 }

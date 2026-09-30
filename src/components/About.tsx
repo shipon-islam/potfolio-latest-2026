@@ -1,4 +1,5 @@
-import { facts, site } from "@/lib/site";
+import { facts } from "@/data/about";
+import { site } from "@/data/site";
 import type { CSSProperties, ReactNode } from "react";
 import Icon from "./Icon";
 import SectionHead from "./SectionHead";

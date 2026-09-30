@@ -1,9 +1,11 @@
-import { automation, services } from "@/lib/site";
+import { services } from "@/data/services";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import Icon from "./Icon";
 import SectionHead from "./SectionHead";
 
 export default function Services() {
+  const automation = services.slice(services.length - 1, services.length)[0];
   return (
     <section id="services" aria-labelledby="services-title" className="section">
       <div className="wrap">
@@ -41,7 +43,7 @@ export default function Services() {
           </span>
         </div>
         <div className="grid gap-4 md:grid-cols-6">
-          {services.map((service, i) => (
+          {services.slice(0, services.length - 1).map((service, i) => (
             <article
               key={service.title}
               data-reveal
@@ -68,10 +70,19 @@ export default function Services() {
                 <Icon d={service.icon} />
               </span>
               <h3 className="text-[1.1rem] tracking-tight">{service.title}</h3>
-              <p className="text-[0.98rem] text-muted">{service.body}</p>
+              <p className="text-[0.98rem] text-muted">{service.description}</p>
               <span className="mt-auto text-[0.88rem] font-bold text-accent">
-                {service.tags}
+                {service.technologies.join(", ")}
               </span>
+              <Link
+                href={`/services/${service.slug}`}
+                className="relative mt-8 flex items-center gap-2 text-sm font-bold text-accent"
+              >
+                Explore service
+                <span className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
             </article>
           ))}
 
@@ -110,12 +121,23 @@ export default function Services() {
                 {automation.title}
               </h3>
               <p className="max-w-[70ch] text-[0.98rem] text-muted">
-                {automation.body}
+                {automation.description}
               </p>
             </div>
-            <span className="relative text-[0.88rem] font-bold text-accent md:ml-auto md:whitespace-nowrap">
-              {automation.tags}
-            </span>
+            <div>
+              <span className="relative text-[0.88rem] font-bold text-accent md:ml-auto md:whitespace-nowrap">
+                {automation.technologies.join(", ")}
+              </span>
+              <Link
+                href={`/services/${automation.slug}`}
+                className="relative mt-8 md:mt-1 md:top-2 flex md:justify-end items-center gap-2 text-sm font-bold text-accent"
+              >
+                Explore service
+                <span className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </div>
           </article>
         </div>
       </div>

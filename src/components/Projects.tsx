@@ -1,22 +1,22 @@
-import { projects } from "@/lib/site";
+import { projects } from "@/data/projects";
 import Image from "next/image";
 import SectionHead from "./SectionHead";
 import SocialIcon from "./SocialIcon";
 import TechIcon from "./TechIcon";
 
-export default function Work() {
+export default function Projects() {
   return (
     <section
-      id="work"
-      aria-labelledby="work-title"
+      id="projects"
+      aria-labelledby="projects-title"
       className="section border-t border-line"
     >
       <div className="wrap">
         <div className="relative">
           <SectionHead
-            id="work-title"
-            eyebrow="Work"
-            title="Selected work."
+            id="projects-title"
+            eyebrow="Projects"
+            title="Selected Projects."
             lede="E-commerce, marketplaces, business and community sites, plus personal builds. Open a project to see what I did on it."
             highlight="work"
             divider
@@ -48,7 +48,7 @@ export default function Work() {
         <div className="border-t border-line">
           {projects.map((project, i) => (
             <details
-              key={project.name}
+              key={project.title}
               className="spot group border-b border-line"
             >
               {/* Each row leads with a generated mock-up of the project, so the
@@ -72,13 +72,13 @@ export default function Work() {
                   />
                 </span> */}
                 <span className="col-start-2 row-start-1 font-display text-[clamp(1.05rem,2.2vw,1.5rem)] font-semibold tracking-tight transition-colors group-hover:text-accent">
-                  {project.name}
+                  {project.title}
                 </span>
                 <span className="hidden col-start-2 row-start-2 sm:flex flex-wrap items-center gap-2 text-[0.95rem] text-muted md:col-start-3 md:row-start-1">
                   <span className="rounded-full border border-line bg-panel px-2.5 py-0.5 text-[0.72rem] font-bold uppercase tracking-[0.08em] text-accent">
-                    {project.type}
+                    {project.category}
                   </span>
-                  {project.meta}
+                  {project.metaTitle}
                 </span>
                 <span
                   className="plus col-start-3 row-start-1 md:col-start-4"
@@ -90,9 +90,9 @@ export default function Work() {
                   <div className="sm:hidden">
                     <span className="col-start-2 row-start-2 flex flex-wrap items-center gap-2 text-[1.1rem] font-semibold text-muted md:col-start-3 md:row-start-1">
                       <span className="rounded-full border border-line bg-panel px-2.5 py-0.5 text-[0.77rem] font-bold uppercase tracking-[0.08em] text-accent">
-                        {project.type}
+                        {project.category}
                       </span>
-                      {project.meta}
+                      {project.metaTitle}
                     </span>
                     <div className="my-4">
                       <Image
@@ -105,15 +105,15 @@ export default function Work() {
                     </div>
                   </div>
 
-                  <p className="max-w-[58ch]">{project.body}</p>
+                  <p className="max-w-[58ch]">{project.longDescription}</p>
                   <ul className="mt-4 flex list-none flex-wrap gap-2 p-0">
-                    {project.tags.map((tag) => (
+                    {project.technologies.map((tech) => (
                       <li
-                        key={tag}
+                        key={tech}
                         className="flex items-center gap-2 rounded-full border border-line bg-panel py-1 pl-1 pr-3 text-[0.82rem] font-semibold text-muted"
                       >
-                        <TechIcon name={tag} size="sm" />
-                        {tag}
+                        <TechIcon name={tech} size="sm" />
+                        {tech}
                       </li>
                     ))}
                   </ul>

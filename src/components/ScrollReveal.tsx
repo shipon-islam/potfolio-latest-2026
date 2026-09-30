@@ -23,7 +23,7 @@ import { useEffect } from "react";
 export default function ScrollReveal() {
   useEffect(() => {
     const nodes = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-reveal]")
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
     );
     if (!nodes.length) return;
 
@@ -45,7 +45,7 @@ export default function ScrollReveal() {
       },
       // A little inside the viewport, so the movement finishes as the element
       // settles rather than starting at the very edge of the screen.
-      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" },
     );
 
     nodes.forEach((node) => observer.observe(node));

@@ -2,12 +2,10 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 import Reviews from "@/components/Reviews";
 import Services from "@/components/Services";
-import Stack from "@/components/Stack";
-import Work from "@/components/Work";
-
-// Structured data so Google can show the right name, role and links.
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -16,9 +14,9 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
-        <Stack />
+        <Skills />
         <Services />
-        <Work />
+        <Projects />
         <Reviews />
         <Contact />
       </main>

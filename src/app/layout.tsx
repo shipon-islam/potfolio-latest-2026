@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ScrollToTop from "@/components/ScrollToTop";
 import PersonSchema from "@/components/seo/PersonSchema";
 import Spotlight from "@/components/Spotlight";
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import type { Metadata, Viewport } from "next";
 import { Manrope, Unbounded } from "next/font/google";
 import "./globals.css";

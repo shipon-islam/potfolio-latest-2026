@@ -1,4 +1,4 @@
-import { heroHighlights, heroSocials, heroStats, site } from "@/lib/site";
+import { heroHighlights, heroSocials, heroStats, site } from "@/data/site";
 import Image from "next/image";
 import Icon from "./Icon";
 import SocialIcon from "./SocialIcon";

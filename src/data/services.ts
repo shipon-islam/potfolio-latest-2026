@@ -1,6 +1,6 @@
 export type Service = {
+  id: string;
   slug: string;
-  number: string;
   title: string;
   shortTitle: string;
   description: string;
@@ -8,19 +8,20 @@ export type Service = {
   technologies: string[];
   features: string[];
   idealFor: string[];
+  span: string;
+  icon: string;
 };
-
 export const services: Service[] = [
   {
+    id: "01",
     slug: "figma-to-react",
-    number: "01",
     title: "Figma to React Development",
     shortTitle: "Figma to React",
     description:
       "Pixel-accurate, responsive websites built from your Figma designs using React, TypeScript, and Tailwind CSS.",
     longDescription:
       "Turn your Figma designs into production-ready React websites with clean, reusable components and responsive layouts. I focus on accurately translating designs into fast and maintainable interfaces that work across modern devices and browsers.",
-    technologies: ["React.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
     features: [
       "Pixel-accurate Figma implementation",
       "Fully responsive layouts",
@@ -36,25 +37,19 @@ export const services: Service[] = [
       "SaaS interfaces",
       "Marketing websites",
     ],
+    span: "md:col-span-3",
+    icon: "M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM8 21h8M12 17v4",
   },
-
   {
+    id: "02",
     slug: "nextjs-development",
-    number: "02",
     title: "Next.js Websites & Web Apps",
     shortTitle: "Next.js Development",
     description:
-      "Fast, SEO-friendly websites and web applications built with Next.js, TypeScript, and Tailwind CSS.",
+      "Server-rendered pages that load fast and are easy for search engines to read. Good for stores, marketplaces and business sites.",
     longDescription:
       "I build modern Next.js websites and web applications designed for speed, scalability, and search visibility. From business websites to marketplaces and SaaS platforms, I can handle both the frontend experience and application logic.",
-    technologies: [
-      "Next.js",
-      "React.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "MongoDB",
-      "Prisma",
-    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     features: [
       "Server-rendered pages",
       "SEO-friendly architecture",
@@ -72,26 +67,19 @@ export const services: Service[] = [
       "SaaS applications",
       "Dashboards",
     ],
+    span: "md:col-span-3",
+    icon: "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5",
   },
-
   {
+    id: "03",
     slug: "api-database-development",
-    number: "03",
     title: "APIs & Database Development",
-    shortTitle: "APIs & Databases",
+    shortTitle: "APIs and databases",
     description:
-      "Secure backend systems with APIs, authentication, databases, admin dashboards, and integrations.",
+      "Secure back ends with authentication, admin dashboards, uploads and clean data models, plus Firebase when you would rather not run a server.",
     longDescription:
       "Build a reliable backend for your web application with secure APIs, authentication, database architecture, file uploads, and third-party integrations. I work with Node.js, Express, MongoDB, Prisma, and Firebase.",
-    technologies: [
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Prisma",
-      "Firebase",
-      "REST APIs",
-      "JWT",
-    ],
+    technologies: ["Node.js", "Express", "MongoDB", "Firebase"],
     features: [
       "REST API development",
       "Authentication & authorization",
@@ -109,24 +97,19 @@ export const services: Service[] = [
       "SaaS products",
       "Mobile app backends",
     ],
+    span: "md:col-span-2",
+    icon: "M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6",
   },
-
   {
+    id: "04",
     slug: "python-development",
-    number: "04",
-    title: "Python Services & Scripts",
+    title: "Python services and scripts",
     shortTitle: "Python Development",
     description:
-      "Python-powered services, scripts, data jobs, scraping tools, and backend solutions.",
+      "Django back ends, scraping and data jobs, and small Python services that sit next to your JavaScript app.",
     longDescription:
       "I build practical Python services and automation scripts that solve specific business and technical problems. Python can work alongside your existing JavaScript application or operate as an independent service.",
-    technologies: [
-      "Python",
-      "Django",
-      "REST APIs",
-      "Web Scraping",
-      "Automation",
-    ],
+    technologies: ["Python", "Django", "scripting", "REST APIs"],
     features: [
       "Python scripting",
       "Django development",
@@ -143,27 +126,20 @@ export const services: Service[] = [
       "Backend services",
       "Scheduled jobs",
     ],
-  },
 
+    span: "md:col-span-2",
+    icon: "M12 2a4 4 0 0 0-4 4v3h8V6a4 4 0 0 0-4-4zM8 21a4 4 0 0 0 4 4M8 9v3a2 2 0 0 0 2 2h4a2 2 0 0 1 2 2v2a4 4 0 0 0 8 0V9H8z",
+  },
   {
+    id: "05",
     slug: "devops-hosting",
-    number: "05",
-    title: "Docker, VPS & Hosting",
+    title: "Docker, VPS and hosting",
     shortTitle: "DevOps & Hosting",
     description:
-      "Deploy and manage applications with Docker, Ubuntu VPS, Nginx, SSL, backups, and automated deployments.",
+      "Containerised builds with a repeatable setup, plus the server side of it: I set up the VPS or shared hosting, put Nginx in front, add free SSL, automate deploys and backups, then keep an eye on uptime.",
     longDescription:
       "Take your application from development to production with a reliable deployment setup. I configure servers, Docker containers, Nginx, SSL, backups, monitoring, and automated deployment workflows.",
-    technologies: [
-      "Docker",
-      "Docker Compose",
-      "Ubuntu VPS",
-      "Nginx",
-      "GitHub Actions",
-      "Cloudflare",
-      "PM2",
-      "Let's Encrypt",
-    ],
+    technologies: ["Docker", "Nginx", "VPS", "GitHub Actions"],
     features: [
       "Ubuntu VPS setup",
       "Docker deployment",
@@ -181,41 +157,45 @@ export const services: Service[] = [
       "Docker projects",
       "VPS migrations",
     ],
+    span: "md:col-span-2",
+    icon: "M3 10h18v5a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-5zM7 10V6h4v4M13 10V6h4v4M12 10V3",
   },
-
   {
+    id: "06",
     slug: "ai-workflow-automation",
-    number: "06",
-    title: "Workflow Automation with AI Agents",
-    shortTitle: "AI & Automation",
+    title: "Workflow automation with AI agents",
+    shortTitle: "AI Automation",
     description:
-      "Connect your tools and automate repetitive business workflows using n8n, AI agents, webhooks, and APIs.",
+      "Connect your forms, spreadsheets, email, CRM and messaging tools with n8n, then add AI agents where they genuinely save time, like answering leads, qualifying requests and moving data between systems.",
     longDescription:
-      "Automate repetitive work by connecting forms, spreadsheets, email, CRMs, messaging platforms, and APIs. I use n8n and AI agents to create workflows that can capture leads, process information, send notifications, synchronize data, and handle routine tasks.",
-    technologies: [
-      "n8n",
-      "AI Agents",
-      "Webhooks",
-      "REST APIs",
-      "Third-party APIs",
-    ],
+      "Build practical AI-powered workflows that connect your tools and reduce repetitive work. I use n8n, APIs, webhooks, and AI agents to automate lead handling, data processing, notifications, customer responses, and business processes.",
+    technologies: ["n8n", "AI Agents", "OpenAI", "Webhooks"],
     features: [
-      "n8n workflow development",
+      "n8n workflow automation",
       "AI agent integration",
+      "API & webhook integration",
       "Lead automation",
       "Email automation",
       "Data synchronization",
-      "Webhook integrations",
-      "API integrations",
-      "Business process automation",
+      "CRM automation",
+      "Messaging automation",
     ],
     idealFor: [
-      "Lead generation",
-      "Customer support",
-      "Order processing",
-      "Email workflows",
-      "Data synchronization",
       "Business automation",
+      "Lead management",
+      "AI-powered workflows",
+      "Data processing",
+      "Repetitive business tasks",
     ],
+    span: "md:col-span-2",
+    icon: "M8.5 6h7M8 7.5l3 9M16 7.5l-3 9M6 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM18 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM12 15.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0-5 0z",
   },
 ];
+
+export const automation = {
+  id: "6",
+  title: "Workflow automation with AI agents",
+  body: "Connect your forms, spreadsheets, email, CRM and messaging tools with n8n, then add AI agents where they genuinely save time, like answering leads, qualifying requests and moving data between systems.",
+  tags: "n8n, AI agents",
+  icon: "M8.5 6h7M8 7.5l3 9M16 7.5l-3 9M6 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM18 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM12 15.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z",
+};

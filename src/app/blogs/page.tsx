@@ -1,42 +1,56 @@
+import CTA from "@/components/CTA";
+import SectionHead from "@/components/SectionHead";
 import { blogPosts } from "@/data/blog";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blog | Shipon Islam",
+  title: "Blogs | Shipon Islam",
   description:
     "Articles about Next.js, React, Node.js, full-stack development, Docker, AI, automation, and modern web development.",
 };
 
-export default function BlogPage() {
+export default function BlogsPage() {
   return (
-    <main className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10 backdrop-grid opacity-50" />
-
-      {/* Hero */}
+    <main>
+      {/* Posts */}
       <section className="section">
         <div className="wrap">
-          <div data-reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
-              My Blog
-            </p>
-
-            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl">
-              Thoughts on <span className="grad-text">modern development.</span>
-            </h1>
-
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted">
-              Practical articles about web development, full-stack applications,
-              Next.js, React, Node.js, DevOps, AI, and automation.
-            </p>
+          <div className="relative">
+            <SectionHead
+              id="blog-title"
+              eyebrow=" My Blog"
+              title="Thoughts on modern development"
+              lede="Practical articles about web development, full-stack applications,
+              Next.js, React, Node.js, DevOps, AI, and automation."
+              highlight="modern"
+              divider
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute right-0 bottom-0 hidden w-[270px] -rotate-[5deg] text-right lg:block"
+            >
+              <span className="block font-display text-[0.92rem] italic leading-snug text-muted">
+                Notes from the journey.
+                <br />
+                Ideas, lessons & useful insights.
+              </span>
+              <svg
+                viewBox="0 0 60 44"
+                className="ml-auto mt-1 h-[44px] w-[60px] text-muted/70"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {/* A curve that leads the eye from the note down to the rule. */}
+                <path d="M52 6Q48 20 34 33" />
+                <path d="M43 32 34 33l1-9" />
+              </svg>
+            </span>
           </div>
-        </div>
-      </section>
-
-      {/* Posts */}
-      <section className="section pt-0">
-        <div className="wrap">
           <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, index) => (
               <article
@@ -51,7 +65,7 @@ export default function BlogPage() {
               >
                 {/* Image */}
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={`/blogs/${post.slug}`}
                   className="block overflow-hidden"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
@@ -88,7 +102,7 @@ export default function BlogPage() {
                     <span className="text-sm text-muted">{post.date}</span>
 
                     <Link
-                      href={`/blog/${post.slug}`}
+                      href={`/blogs/${post.slug}`}
                       className="text-sm font-bold text-accent"
                     >
                       Read article →
@@ -100,40 +114,13 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="section pt-0">
-        <div className="wrap">
-          <div
-            data-reveal
-            className="relative overflow-hidden rounded-[2rem] border border-line bg-panel p-10 text-center sm:p-16"
-          >
-            <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-
-            <div className="relative">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
-                Have a project?
-              </p>
-
-              <h2 className="mx-auto mt-4 max-w-3xl text-3xl sm:text-4xl">
-                Let&apos;s build something together.
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-xl leading-7 text-muted">
-                Need help with a website, web application, backend, or
-                automation project?
-              </p>
-
-              <div className="mt-8">
-                <Link href="/contact" className="btn btn-primary">
-                  Start a Project
-                  <span>→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA
+        topText=" Have a project?"
+        title="Let's build something together."
+        subtitle="Need help with a website, web application, backend, or automation project?"
+        outlineBtnText="More Blogs"
+        outLineBtnLink="/blog"
+      />
     </main>
   );
 }

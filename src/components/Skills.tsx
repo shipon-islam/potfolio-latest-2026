@@ -1,29 +1,16 @@
-import { stack } from "@/lib/site";
+import { skills } from "@/data/skills";
 import type { CSSProperties } from "react";
 import Icon from "./Icon";
 import SectionHead from "./SectionHead";
 import TechIcon from "./TechIcon";
 
-// One card per layer, in a six-column grid from `lg`: the first two cards take
-// half a row each, the last three a third, so the grid always closes. Cards are
-// headed by the layer's glyph, the name and a count pill, then the tool chips
-// and — where the content has one — a closing note pinned to the bottom of the
-// card. The reveal delay walks down the list so the grid lands in order.
-//
-// Every card also carries a hue of its own: `layer.tone` is written onto the card
-// as `--tone-light` / `--tone-dark` and the `.tone*` classes in globals.css paint
-// the border, the header tile, the count pill, the closing note and the chip
-// hover from it, so the five layers read as five groups instead of one colour
-// repeated.
-//
-// The spans and the tones come from lib/site.ts with the rest of the content.
-export default function Stack() {
+export default function Skills() {
   return (
-    <section id="stack" aria-labelledby="stack-title" className="section ">
+    <section id="skills" aria-labelledby="skills-title" className="section ">
       <div className="wrap">
         <div className="relative">
           <SectionHead
-            id="stack-title"
+            id="skills-title"
             eyebrow="My toolkit"
             title="The tools I build with."
             highlight="build"
@@ -59,7 +46,7 @@ export default function Stack() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
-          {stack.map((row, i) => (
+          {skills.map((row, i) => (
             <article
               key={row.layer}
               data-reveal

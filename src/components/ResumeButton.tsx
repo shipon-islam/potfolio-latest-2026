@@ -1,4 +1,4 @@
-import { site } from "@/lib/site";
+import { site } from "@/data/site";
 import Icon from "./Icon";
 
 // Feather-style download glyph (24x24 grid, stroked by Icon.tsx).

@@ -1,4 +1,4 @@
-import type { Social } from "@/lib/site";
+import type { Social } from "@/data/site";
 
 // Brand glyphs as one filled path each on a 24x24 grid — same grid as Icon.tsx,
 // but filled instead of stroked, because these are brand marks.

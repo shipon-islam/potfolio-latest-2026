@@ -1,4 +1,4 @@
-import { fiverrReviewUrl } from "@/lib/site";
+import { fiverrReviewUrl } from "@/data/reviews";
 import ReviewsSlider from "./ReviewsSlider";
 import SectionHead from "./SectionHead";
 

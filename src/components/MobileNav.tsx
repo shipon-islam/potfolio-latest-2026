@@ -1,7 +1,7 @@
 "use client";
 
+import { nav } from "@/data/site";
 import { useEffect, useRef, useState } from "react";
-import { nav } from "@/lib/site";
 
 // Hamburger menu shown below the `md` breakpoint. The desktop nav lives in
 // Header.tsx; this component takes over on small screens and renders a dropdown

@@ -71,4 +71,3 @@ export function useActiveSection(sectionIds: string[]) {
 
   return activeId;
 }
-

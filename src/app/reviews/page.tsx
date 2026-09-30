@@ -1,17 +1,17 @@
-import About from "@/components/About";
 import CTA from "@/components/CTA";
+import Reviews from "@/components/Reviews";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Shipon Islam | Full-Stack Web Developer",
+  title: "Reviews | Full-Stack Web Developer",
   description:
-    "Learn more about Shipon Islam, a full-stack web developer specializing in Next.js, React, Node.js, TypeScript, and modern web application development.",
+    "Read client reviews and testimonials about Shipon Islam’s web development services, communication, project quality, reliability, and professional support.",
 };
 
-export default function AboutPage() {
+export default function ReviewsPage() {
   return (
     <main>
-      <About />
+      <Reviews />
       <CTA
         topText="Have a project?"
         title="Let's build something useful together."
