@@ -1,4 +1,4 @@
-import { services } from "@/data/services";
+import { services } from "@/lib/site";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import Icon from "./Icon";

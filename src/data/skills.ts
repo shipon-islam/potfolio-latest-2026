@@ -1,3 +1,4 @@
+// all data has been duplicated to /lib/site because dynamic grid not working from here
 export type skillsLayer = {
   layer: string;
   blurb: string;

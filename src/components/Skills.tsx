@@ -1,4 +1,4 @@
-import { skills } from "@/data/skills";
+import { skills } from "@/lib/site";
 import type { CSSProperties } from "react";
 import Icon from "./Icon";
 import SectionHead from "./SectionHead";
