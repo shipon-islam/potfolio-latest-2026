@@ -1,6 +1,9 @@
 import Backdrop from "@/components/Backdrop";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollToTop from "@/components/ScrollToTop";
+import PersonSchema from "@/components/seo/PersonSchema";
 import Spotlight from "@/components/Spotlight";
 import { site } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
@@ -47,9 +50,11 @@ export const metadata: Metadata = {
     "Docker developer",
     "n8n automation developer",
     "freelance web developer",
+    "frontend web developer",
+    "frontend web developer bangladesh",
   ],
   alternates: { canonical: "/" },
-  icons: { icon: "/icon.svg", apple: "/icon.svg" },
+  icons: { icon: "/icon.png", apple: "/icon.png" },
   openGraph: {
     type: "website",
     url: site.siteUrl,
@@ -59,9 +64,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/portrait.PNG",
-        width: 520,
-        height: 642,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: `${site.name}, ${site.role}`,
       },
     ],
@@ -70,12 +75,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${site.name} | ${site.role}`,
     description,
-    images: ["/portrait.PNG"],
+    images: ["/portrait.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -123,8 +134,11 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
+        <PersonSchema />
         {/* Global: the drifting colour fields and grid behind every section. */}
+        <Header />
         <Backdrop />
+
         {children}
         {/* Global: appears once the visitor scrolls past the first screen. */}
         <ScrollToTop />
@@ -132,6 +146,7 @@ export default function RootLayout({
         <Spotlight />
         {/* Global: fades each `data-reveal` element in as it scrolls into view. */}
         <ScrollReveal />
+        <Footer />
       </body>
     </html>
   );
