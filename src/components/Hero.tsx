@@ -1,5 +1,6 @@
 import { heroHighlights, heroSocials, heroStats, site } from "@/data/site";
 import Image from "next/image";
+import Link from "next/link";
 import Icon from "./Icon";
 import SocialIcon from "./SocialIcon";
 import { WorldwideIcon } from "./SvgIcon";
@@ -159,8 +160,8 @@ export default function Hero() {
             className="animate-rise-in mt-[34px] flex flex-wrap gap-3"
             style={enter(360)}
           >
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="btn btn-primary group relative overflow-hidden "
             >
               {/* A light streak that crosses the button on hover. The keyframe
@@ -184,8 +185,8 @@ export default function Hero() {
               >
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </a>
-            <a href="#work" className="btn spot group  sm:inline-flex">
+            </Link>
+            <Link href="/projects" className="btn spot group  sm:inline-flex">
               See <span className="hidden sm:inline-block">my</span>work
               <svg
                 width="15"
@@ -201,7 +202,7 @@ export default function Hero() {
               >
                 <path d="M12 5v14M6 13l6 6 6-6" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           {/* <ul className="mt-7 flex list-none flex-wrap gap-2 p-0">
