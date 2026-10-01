@@ -96,7 +96,7 @@ export default function MobileNav({ activeId }: MobileNavProps) {
             })}
           </nav>
           <a
-            href="#contact"
+            href="/contact"
             onClick={close}
             className="btn btn-primary mt-2.5 w-full text-[0.95rem] sm:hidden"
           >
