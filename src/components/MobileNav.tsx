@@ -77,7 +77,8 @@ export default function MobileNav({ activeId }: MobileNavProps) {
         >
           <nav aria-label="Mobile" className="grid">
             {nav.map((item) => {
-              const isActive = activeId === item.href.replace(/^#/, "");
+              const isActive =
+                activeId && activeId.includes(item.href.replace(/^#/, ""));
               return (
                 <a
                   key={item.href}

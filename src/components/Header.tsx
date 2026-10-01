@@ -40,7 +40,7 @@ export default function Header() {
         {/* Desktop nav. Below `md` the MobileNav dropdown takes over. */}
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           {nav.map((item) => {
-            const isActive = path === item.href.replace(/^#/, "");
+            const isActive = path.includes(item.href.replace(/^#/, ""));
 
             return (
               <a
