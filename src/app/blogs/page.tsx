@@ -15,7 +15,7 @@ export default function BlogsPage() {
   return (
     <main>
       {/* Posts */}
-      <section className="section">
+      <section className="section" data-reveal>
         <div className="wrap">
           <div className="relative">
             <SectionHead
@@ -118,8 +118,6 @@ export default function BlogsPage() {
         topText=" Have a project?"
         title="Let's build something together."
         subtitle="Need help with a website, web application, backend, or automation project?"
-        outlineBtnText="More Blogs"
-        outLineBtnLink="/blog"
       />
     </main>
   );

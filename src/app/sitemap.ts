@@ -12,11 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
   const projectUrls = projects.map((project) => ({
-    url: `${baseUrl}/blogs/${project.slug}`,
+    url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(),
   }));
   const serviceUrls = services.map((service) => ({
-    url: `${baseUrl}/blogs/${service.slug}`,
+    url: `${baseUrl}/services/${service.slug}`,
     lastModified: new Date(),
   }));
   return [
@@ -26,6 +26,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/about`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/experience`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/skills`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/reviews`,
       lastModified: new Date(),
     },
     {
@@ -43,13 +59,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     ...blogUrls,
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/experience`,
-      lastModified: new Date(),
-    },
   ];
 }

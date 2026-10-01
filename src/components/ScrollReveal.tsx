@@ -2,35 +2,15 @@
 
 import { useEffect } from "react";
 
-// Scroll reveal, mounted once in app/layout.tsx.
-//
-// One IntersectionObserver serves the whole page, the same "one listener, no
-// state" approach as Spotlight and ScrollToTop: any element carrying a
-// `data-reveal` attribute starts shifted and faded (globals.css) and gets the
-// `is-in` class the first time it comes into view. Sections stay server
-// components — they only add the attribute.
-//
-//   <article data-reveal>…</article>            slides up
-//   <div data-reveal="left">…</div>             slides in from the left
-//   <div data-reveal="fade">…</div>             cross-fades only
-//
-// A row of cards can be staggered by giving each one its own delay:
-//
-//   <li data-reveal style={{ "--reveal-delay": `${i * 70}ms` }}>
-//
-// With `prefers-reduced-motion: reduce` everything is shown at once instead of
-// observed, and globals.css forces the same state as a second safety net.
 export default function ScrollReveal() {
   useEffect(() => {
-    const nodes = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-reveal]"),
-    );
-    if (!nodes.length) return;
-
-    const show = (node: HTMLElement) => node.classList.add("is-in");
+    const observed = new WeakSet<HTMLElement>();
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      nodes.forEach(show);
+      document
+        .querySelectorAll<HTMLElement>("[data-reveal]")
+        .forEach((node) => node.classList.add("is-in"));
+
       return;
     }
 
@@ -38,18 +18,58 @@ export default function ScrollReveal() {
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          show(entry.target as HTMLElement);
-          // One way only: nothing fades back out when you scroll up again.
-          observer.unobserve(entry.target);
+
+          const node = entry.target as HTMLElement;
+
+          node.classList.add("is-in");
+          observer.unobserve(node);
         }
       },
-      // A little inside the viewport, so the movement finishes as the element
-      // settles rather than starting at the very edge of the screen.
-      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -8% 0px",
+      },
     );
 
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    const observeNodes = (root: ParentNode = document) => {
+      root.querySelectorAll<HTMLElement>("[data-reveal]").forEach((node) => {
+        if (observed.has(node)) return;
+
+        observed.add(node);
+        observer.observe(node);
+      });
+    };
+
+    // Initial page
+    observeNodes();
+
+    // Detect elements added during client-side navigation
+    const mutationObserver = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (!(node instanceof HTMLElement)) continue;
+
+          if (node.matches("[data-reveal]")) {
+            if (!observed.has(node)) {
+              observed.add(node);
+              observer.observe(node);
+            }
+          }
+
+          observeNodes(node);
+        }
+      }
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   return null;

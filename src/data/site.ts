@@ -32,8 +32,8 @@ export const site = {
     github: "https://github.com/shipon-islam", // TODO: replace with your GitHub profile URL
     linkedin: "https://www.linkedin.com/in/shiponislam1", // TODO: replace with your LinkedIn profile URL
     x: "https://x.com/shiponIslam22", // TODO: replace with your X (Twitter) profile URL
-    instagram: "https://www.instagram.com/shipon_islam1", // TODO: replace with your Instagram profile URL
-    facebook: "https://www.facebook.com/shipon.islam.920242", // TODO: replace with your Facebook profile URL
+    instagram: "https://www.instagram.com/shiponislam.developer", // TODO: replace with your Instagram profile URL
+    facebook: "https://www.facebook.com/shiponislam.dev", // TODO: replace with your Facebook profile URL
   },
 };
 

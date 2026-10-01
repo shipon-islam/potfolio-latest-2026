@@ -53,7 +53,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main>
       {/* Hero */}
-      <section className="section pb-10">
+      <section className="section pb-10" data-reveal>
         <div className="wrap">
           <div className="">
             <div data-reveal>
@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* Article */}
-      <section className="section pt-10">
+      <section className="section pt-10" data-reveal>
         <div className="wrap">
           <div className="grid gap-12 lg:grid-cols-[1fr_280px] ">
             {/* Content */}
@@ -201,7 +201,7 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* Previous / Next */}
-      <section className="section bg-panel/40">
+      <section className="section bg-panel/40" data-reveal>
         <div className="wrap">
           <div className="grid gap-4 sm:grid-cols-2">
             {previousPost ? (
@@ -255,7 +255,7 @@ export default async function BlogPostPage({ params }: Props) {
           subtitle="I build modern websites, web applications, APIs, and automation
                 systems."
           outlineBtnText="View Blogs"
-          outLineBtnLink="/blog"
+          outLineBtnLink="/blogs"
         />
       </section>
     </main>
